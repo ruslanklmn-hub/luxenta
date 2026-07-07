@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Траектория — онлайн-школа, которая подстраивается под ребёнка</title>
+<meta name="description" content="Семейная онлайн-школа 1–11 класс. Своя образовательная траектория для каждого ребёнка: программу строит ИИ вместе с наставником. Учёба через проекты, без стресса. Официальный аттестат. Набор на 1 сентября.">
+<meta property="og:title" content="Траектория — онлайн-школа, которая подстраивается под ребёнка">
+<meta property="og:description" content="Своя программа для каждого ребёнка. ИИ + наставник. Официальный аттестат. Набор на сентябрь.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Lora:ital,wght@0,500;0,600;1,500&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Lora:ital,wght@0,500;0,600;1,500&display=swap"></noscript>
+<style>
+:root{
+  --bg:#fbf9f5;
+  --bg-2:#f4eee4;
+  --surface:#ffffff;
+  --ink:#181521;
+  --ink-2:#2f2b3b;
+  --muted:#655f72;
+  --muted-2:#9a93a6;
+  --line:rgba(24,21,33,.09);
+  --line-2:rgba(24,21,33,.15);
+  --indigo:#4f46e5;
+  --violet:#7c5cff;
+  --coral:#ff6a52;
+  --gold:#f2a33c;
+  --green:#12b277;
+  --grad:linear-gradient(118deg,#4f46e5,#7c5cff 48%,#ff6a52);
+  --grad-2:linear-gradient(118deg,#5b52ff,#9a6bff);
+  --radius:20px;
+  --maxw:1200px;
+  --shadow:0 30px 70px -34px rgba(53,38,92,.42);
+  --shadow-sm:0 14px 34px -18px rgba(53,38,92,.34);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Manrope',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  background:var(--bg);color:var(--ink);line-height:1.62;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+h1,h2,h3,h4{letter-spacing:-.02em;line-height:1.1;font-weight:800}
+.serif{font-family:'Lora',Georgia,serif;font-weight:600;letter-spacing:-.01em;font-style:italic}
+a{color:inherit;text-decoration:none}
+img{max-width:100%}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 26px}
+.grad-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:9px;font-size:12.5px;font-weight:700;
+  letter-spacing:.11em;text-transform:uppercase;color:var(--indigo);
+  padding:8px 15px;border:1px solid var(--line-2);border-radius:100px;background:rgba(124,92,255,.06);
+}
+.eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--coral);box-shadow:0 0 0 4px rgba(255,106,82,.18)}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;font-weight:700;font-size:15.5px;
+  padding:15px 26px;border-radius:13px;cursor:pointer;border:1px solid transparent;font-family:inherit;
+  transition:transform .22s ease,box-shadow .22s ease,background .22s ease;white-space:nowrap;
+}
+.btn-primary{background:var(--grad);color:#fff;box-shadow:0 14px 34px -12px rgba(124,92,255,.7)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 20px 44px -12px rgba(124,92,255,.8)}
+.btn-ghost{background:var(--surface);border-color:var(--line-2);color:var(--ink)}
+.btn-ghost:hover{transform:translateY(-2px);box-shadow:var(--shadow-sm)}
+.btn svg{width:18px;height:18px}
+section{position:relative}
+.sec-head{max-width:720px;margin:0 auto 54px;text-align:center}
+.sec-head.left{margin-left:0;text-align:left}
+.sec-head h2{font-size:clamp(30px,4vw,46px);margin:16px 0 16px}
+.sec-head p{font-size:18px;color:var(--muted)}
+
+/* NAV */
+header{position:sticky;top:0;z-index:60;transition:background .3s,border-color .3s,box-shadow .3s;border-bottom:1px solid transparent}
+header.scrolled{background:rgba(251,249,245,.82);backdrop-filter:blur(16px);border-color:var(--line);box-shadow:0 4px 20px -12px rgba(53,38,92,.3)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:76px}
+.logo{display:flex;align-items:center;gap:11px;font-weight:800;font-size:20px;letter-spacing:-.02em}
+.logo-mark{width:36px;height:36px;border-radius:11px;background:var(--grad);display:grid;place-items:center;box-shadow:0 8px 20px -6px rgba(124,92,255,.6)}
+.logo-mark svg{width:21px;height:21px}
+.nav-links{display:flex;gap:30px;align-items:center}
+.nav-links a{font-size:15px;color:var(--muted);font-weight:600;transition:color .2s}
+.nav-links a:hover{color:var(--ink)}
+.nav-cta{display:flex;gap:12px;align-items:center}
+.burger{display:none;background:var(--surface);border:1px solid var(--line-2);border-radius:11px;padding:10px;cursor:pointer}
+.burger span{display:block;width:20px;height:2px;background:var(--ink);margin:4px 0;border-radius:2px;transition:.25s}
+
+/* HERO */
+.hero{position:relative;padding:70px 0 86px;overflow:hidden}
+.hero-bg{position:absolute;inset:0;z-index:0;pointer-events:none}
+.orb{position:absolute;border-radius:50%;filter:blur(96px)}
+.orb-1{width:560px;height:560px;background:radial-gradient(circle,rgba(124,92,255,.34),transparent 68%);top:-200px;right:-120px}
+.orb-2{width:480px;height:480px;background:radial-gradient(circle,rgba(255,106,82,.26),transparent 68%);bottom:-220px;left:-160px}
+.grid-bg{position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:56px 56px;mask-image:radial-gradient(ellipse 72% 62% at 50% 26%,#000,transparent 74%);opacity:.7}
+.hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.06fr .94fr;gap:56px;align-items:center}
+.hero h1{font-size:clamp(38px,5.2vw,62px);margin:22px 0 22px;font-weight:800}
+.hero p.lead{font-size:19.5px;color:var(--muted);max-width:560px;margin-bottom:34px}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:30px}
+.hero-trust{display:flex;gap:12px;flex-wrap:wrap}
+.chip{display:inline-flex;align-items:center;gap:8px;font-size:13.5px;font-weight:600;color:var(--ink-2);padding:8px 14px;background:var(--surface);border:1px solid var(--line);border-radius:100px;box-shadow:var(--shadow-sm)}
+.chip svg{width:16px;height:16px;color:var(--green)}
+
+/* HERO CARD (личный план) */
+.pcard{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:24px;padding:24px;box-shadow:var(--shadow)}
+.pcard::before{content:"";position:absolute;inset:0;border-radius:24px;padding:1.4px;background:var(--grad);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:.5;pointer-events:none}
+.pcard-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+.pcard-kid{display:flex;align-items:center;gap:12px}
+.pcard-ava{width:44px;height:44px;border-radius:13px;background:linear-gradient(135deg,#7c5cff,#4f46e5);display:grid;place-items:center;color:#fff;font-weight:800;font-size:17px}
+.pcard-kid .n{font-weight:800;font-size:16px}
+.pcard-kid .m{font-size:12.5px;color:var(--muted)}
+.pcard-live{display:inline-flex;align-items:center;gap:7px;font-size:12px;font-weight:700;color:var(--green);padding:6px 11px;border-radius:100px;background:rgba(18,178,119,.1)}
+.pcard-live .pulse{width:7px;height:7px;border-radius:50%;background:var(--green);animation:pulse 1.6s infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(18,178,119,.5)}50%{box-shadow:0 0 0 5px rgba(18,178,119,0)}}
+.pcard-label{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted-2);margin-bottom:12px}
+.plan-item{display:flex;align-items:center;gap:13px;padding:12px 14px;background:var(--bg);border:1px solid var(--line);border-radius:14px;margin-bottom:9px}
+.plan-item .ic{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;flex-shrink:0;font-size:17px}
+.plan-item .ic.a{background:rgba(79,70,229,.12)}
+.plan-item .ic.b{background:rgba(255,106,82,.13)}
+.plan-item .ic.c{background:rgba(18,178,119,.13)}
+.plan-item .tx{flex:1;min-width:0}
+.plan-item .tx .t{font-weight:700;font-size:14.5px}
+.plan-item .tx .s{font-size:12.5px;color:var(--muted)}
+.plan-item .tag{font-size:11px;font-weight:700;padding:4px 9px;border-radius:100px;white-space:nowrap}
+.tag.lvl{color:var(--indigo);background:rgba(79,70,229,.1)}
+.tag.done{color:var(--green);background:rgba(18,178,119,.12)}
+.tag.new{color:var(--coral);background:rgba(255,106,82,.12)}
+.pcard-foot{display:flex;align-items:center;gap:11px;margin-top:16px;padding:13px 15px;border-radius:14px;background:linear-gradient(120deg,rgba(79,70,229,.08),rgba(255,106,82,.07));border:1px solid var(--line)}
+.pcard-foot svg{width:20px;height:20px;color:var(--violet);flex-shrink:0}
+.pcard-foot .ft{font-size:13px;color:var(--ink-2)}
+.pcard-foot .ft b{font-weight:800}
+.float-badge{position:absolute;right:-16px;bottom:44px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:12px 15px;box-shadow:var(--shadow);display:flex;align-items:center;gap:11px;animation:floaty 4.5s ease-in-out infinite}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+.float-badge .spark{width:38px;height:26px}
+.float-badge .fb-t{font-size:12px;color:var(--muted);font-weight:600}
+.float-badge .fb-v{font-size:16px;font-weight:800}
+
+/* STATS */
+.band{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--surface)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;padding:42px 0}
+.stat{text-align:center}
+.stat .v{font-size:clamp(28px,3.4vw,40px);font-weight:800;letter-spacing:-.03em}
+.stat .l{font-size:14px;color:var(--muted);margin-top:4px}
+.stat .v .grad-text{display:inline}
+
+/* PROBLEM (compare) */
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:14px}
+.comp-card{border-radius:var(--radius);padding:30px;border:1px solid var(--line)}
+.comp-card.old{background:var(--bg-2)}
+.comp-card.new{background:var(--surface);box-shadow:var(--shadow);position:relative;overflow:hidden}
+.comp-card.new::after{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:var(--grad)}
+.comp-card h3{font-size:21px;margin-bottom:6px;display:flex;align-items:center;gap:10px}
+.comp-card .sub{font-size:13.5px;color:var(--muted);margin-bottom:20px}
+.comp-list{list-style:none;display:flex;flex-direction:column;gap:13px}
+.comp-list li{display:flex;gap:12px;font-size:15px;color:var(--ink-2)}
+.comp-list li svg{width:20px;height:20px;flex-shrink:0;margin-top:2px}
+.comp-card.old li svg{color:var(--muted-2)}
+.comp-card.new li svg{color:var(--green)}
+.tick-old{width:26px;height:26px;border-radius:8px;background:rgba(24,21,33,.06);display:grid;place-items:center}
+.tick-new{width:26px;height:26px;border-radius:8px;background:var(--grad);display:grid;place-items:center;color:#fff}
+
+/* HOW (steps on a trajectory) */
+.how{position:relative}
+.how-track{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:20px}
+.traj-line{position:absolute;top:38px;left:6%;right:6%;height:60px;z-index:0;pointer-events:none}
+.step{position:relative;z-index:1;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:26px 22px;box-shadow:var(--shadow-sm);transition:transform .25s,box-shadow .25s}
+.step:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+.step .num{width:46px;height:46px;border-radius:14px;background:var(--grad);color:#fff;display:grid;place-items:center;font-weight:800;font-size:19px;margin-bottom:16px;box-shadow:0 10px 22px -8px rgba(124,92,255,.6)}
+.step h4{font-size:18px;margin-bottom:8px}
+.step p{font-size:14.5px;color:var(--muted)}
+
+/* PILLARS */
+.pillars{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:10px}
+.pillar{position:relative;border-radius:26px;padding:38px;overflow:hidden;border:1px solid var(--line);background:var(--surface);box-shadow:var(--shadow-sm)}
+.pillar .p-orb{position:absolute;width:280px;height:280px;border-radius:50%;filter:blur(70px);opacity:.5;z-index:0}
+.pillar.ai .p-orb{background:radial-gradient(circle,rgba(124,92,255,.5),transparent 70%);top:-120px;right:-90px}
+.pillar.method .p-orb{background:radial-gradient(circle,rgba(255,106,82,.4),transparent 70%);bottom:-130px;left:-90px}
+.pillar-in{position:relative;z-index:1}
+.pillar .p-ic{width:56px;height:56px;border-radius:16px;display:grid;place-items:center;margin-bottom:20px;color:#fff}
+.pillar.ai .p-ic{background:var(--grad-2)}
+.pillar.method .p-ic{background:linear-gradient(120deg,#ff6a52,#f2a33c)}
+.pillar .p-ic svg{width:28px;height:28px}
+.pillar h3{font-size:25px;margin-bottom:12px}
+.pillar>.pillar-in>p{font-size:16px;color:var(--muted);margin-bottom:22px}
+.p-feats{list-style:none;display:flex;flex-direction:column;gap:14px}
+.p-feats li{display:flex;gap:13px;align-items:flex-start}
+.p-feats li .fi{width:30px;height:30px;border-radius:9px;background:var(--bg-2);display:grid;place-items:center;flex-shrink:0}
+.p-feats li .fi svg{width:16px;height:16px;color:var(--indigo)}
+.pillar.method .fi svg{color:var(--coral)}
+.p-feats li .ft{font-size:14.5px}
+.p-feats li .ft b{font-weight:800;display:block;margin-bottom:1px}
+.p-feats li .ft span{color:var(--muted)}
+
+/* PROGRAM + LEGAL */
+.legal-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:44px;align-items:center}
+.grades{display:flex;flex-wrap:wrap;gap:10px;margin:24px 0 30px}
+.grade{width:52px;height:52px;border-radius:14px;background:var(--surface);border:1px solid var(--line);display:grid;place-items:center;font-weight:800;font-size:17px;box-shadow:var(--shadow-sm);transition:.2s}
+.grade:hover{transform:translateY(-4px);border-color:var(--violet);color:var(--indigo)}
+.legal-steps{list-style:none;counter-reset:ls;display:flex;flex-direction:column;gap:16px}
+.legal-steps li{display:flex;gap:15px;counter-increment:ls}
+.legal-steps li::before{content:counter(ls);flex-shrink:0;width:32px;height:32px;border-radius:10px;background:var(--grad);color:#fff;display:grid;place-items:center;font-weight:800;font-size:14px}
+.legal-steps li .lt{font-size:15px}
+.legal-steps li .lt b{font-weight:800}
+.legal-steps li .lt span{color:var(--muted);font-size:14px}
+.legal-card{background:var(--surface);border:1px solid var(--line);border-radius:24px;padding:32px;box-shadow:var(--shadow)}
+.legal-card .badge-official{display:inline-flex;align-items:center;gap:9px;padding:9px 15px;border-radius:100px;background:rgba(18,178,119,.1);color:var(--green);font-weight:700;font-size:14px;margin-bottom:18px}
+.legal-card .badge-official svg{width:18px;height:18px}
+.legal-card h3{font-size:22px;margin-bottom:12px}
+.legal-card p{font-size:14.5px;color:var(--muted);margin-bottom:14px}
+.legal-note{font-size:12.5px;color:var(--muted-2);padding-top:14px;border-top:1px solid var(--line)}
+
+/* PRICING */
+.prices{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:12px}
+.price{background:var(--surface);border:1px solid var(--line);border-radius:24px;padding:32px 28px;position:relative;display:flex;flex-direction:column;transition:transform .25s,box-shadow .25s}
+.price:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+.price.pop{border-color:transparent;box-shadow:var(--shadow)}
+.price.pop::before{content:"";position:absolute;inset:0;border-radius:24px;padding:1.6px;background:var(--grad);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+.price .pop-tag{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--grad);color:#fff;font-size:12px;font-weight:700;padding:6px 15px;border-radius:100px;box-shadow:0 8px 20px -6px rgba(124,92,255,.6)}
+.price .pname{font-size:18px;font-weight:800;margin-bottom:6px}
+.price .pdesc{font-size:13.5px;color:var(--muted);margin-bottom:18px;min-height:38px}
+.price .pcost{font-size:38px;font-weight:800;letter-spacing:-.03em}
+.price .pcost span{font-size:16px;font-weight:600;color:var(--muted)}
+.price .pfeat{list-style:none;display:flex;flex-direction:column;gap:11px;margin:20px 0 26px}
+.price .pfeat li{display:flex;gap:10px;font-size:14px;color:var(--ink-2)}
+.price .pfeat li svg{width:18px;height:18px;color:var(--green);flex-shrink:0;margin-top:2px}
+.price .btn{width:100%;margin-top:auto}
+.price-note{text-align:center;font-size:13.5px;color:var(--muted);margin-top:22px}
+
+/* FAQ */
+.faq{max-width:820px;margin:0 auto}
+.q{border:1px solid var(--line);border-radius:16px;background:var(--surface);margin-bottom:12px;overflow:hidden;transition:box-shadow .2s}
+.q.open{box-shadow:var(--shadow-sm)}
+.q-head{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 24px;cursor:pointer;font-weight:700;font-size:16.5px}
+.q-head .qi{width:28px;height:28px;border-radius:8px;background:var(--bg-2);display:grid;place-items:center;flex-shrink:0;transition:.3s}
+.q.open .qi{background:var(--grad);color:#fff;transform:rotate(45deg)}
+.q-head .qi svg{width:16px;height:16px}
+.q-body{max-height:0;overflow:hidden;transition:max-height .35s ease}
+.q-body p{padding:0 24px 22px;color:var(--muted);font-size:15px}
+
+/* CTA */
+.cta-sec{padding:20px 0 90px}
+.cta-box{position:relative;border-radius:30px;overflow:hidden;background:linear-gradient(125deg,#2a2350,#4f46e5 55%,#7c5cff);color:#fff;padding:60px;box-shadow:0 40px 80px -30px rgba(79,70,229,.6)}
+.cta-box .cta-orb{position:absolute;border-radius:50%;filter:blur(80px)}
+.cta-box .cta-orb.a{width:360px;height:360px;background:rgba(255,106,82,.5);top:-140px;right:-80px}
+.cta-box .cta-orb.b{width:300px;height:300px;background:rgba(124,92,255,.6);bottom:-140px;left:-60px}
+.cta-in{position:relative;z-index:1;display:grid;grid-template-columns:1.1fr .9fr;gap:44px;align-items:center}
+.cta-in .eyebrow{color:#fff;border-color:rgba(255,255,255,.3);background:rgba(255,255,255,.1)}
+.cta-in .eyebrow .dot{background:#ffd6cc}
+.cta-in h2{font-size:clamp(28px,3.6vw,42px);margin:18px 0 16px}
+.cta-in p{font-size:17px;color:rgba(255,255,255,.85);margin-bottom:8px}
+.form{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:22px;padding:26px;backdrop-filter:blur(6px)}
+.form label{display:block;font-size:13px;font-weight:600;margin-bottom:7px;color:rgba(255,255,255,.9)}
+.form .field{margin-bottom:15px}
+.form input,.form select{width:100%;padding:13px 15px;border-radius:12px;border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.95);color:var(--ink);font-family:inherit;font-size:15px}
+.form input:focus,.form select:focus{outline:2px solid #ffd6cc}
+.form .btn{width:100%;background:#fff;color:var(--indigo)}
+.form .btn:hover{background:#fff;box-shadow:0 16px 34px -12px rgba(0,0,0,.4)}
+.form .fine{font-size:11.5px;color:rgba(255,255,255,.7);margin-top:12px;text-align:center}
+.form-ok{display:none;text-align:center;padding:30px 10px}
+.form-ok.show{display:block}
+.form-ok svg{width:52px;height:52px;color:#fff;margin-bottom:14px}
+.form-ok h3{font-size:22px;margin-bottom:8px}
+.form-ok p{color:rgba(255,255,255,.85);font-size:15px}
+
+/* FOOTER */
+footer{background:var(--surface);border-top:1px solid var(--line);padding:56px 0 34px}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:30px;margin-bottom:36px}
+.foot-brand p{font-size:14px;color:var(--muted);margin-top:14px;max-width:320px}
+.foot-col h5{font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--muted-2);margin-bottom:14px}
+.foot-col a{display:block;font-size:14.5px;color:var(--muted);margin-bottom:10px;transition:color .2s}
+.foot-col a:hover{color:var(--ink)}
+.foot-disc{font-size:12.5px;color:var(--muted-2);line-height:1.7;border-top:1px solid var(--line);padding-top:24px}
+.foot-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-top:20px;font-size:13px;color:var(--muted-2)}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+
+/* RESPONSIVE */
+@media(max-width:960px){
+  .hero-grid,.legal-grid,.cta-in{grid-template-columns:1fr}
+  .hero-grid{gap:44px}
+  .pillars,.compare{grid-template-columns:1fr}
+  .how-track{grid-template-columns:1fr 1fr}
+  .traj-line{display:none}
+  .prices{grid-template-columns:1fr}
+  .stats{grid-template-columns:1fr 1fr;gap:30px}
+  .foot-grid{grid-template-columns:1fr 1fr}
+  .float-badge{right:10px}
+  .cta-box{padding:40px 28px}
+}
+@media(max-width:600px){
+  .nav-links,.nav-cta .btn-ghost{display:none}
+  .burger{display:block}
+  .how-track{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr 1fr}
+  .grades .grade{width:46px;height:46px}
+  .mobile-menu.open{display:flex}
+}
+.mobile-menu{display:none;position:fixed;inset:76px 0 0;z-index:55;background:var(--bg);flex-direction:column;padding:24px 26px;gap:6px}
+.mobile-menu a{font-size:18px;font-weight:700;padding:14px 0;border-bottom:1px solid var(--line)}
+.mobile-menu .btn{margin-top:16px}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header id="hdr">
+  <div class="wrap nav">
+    <a href="#" class="logo">
+      <span class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M10.3 2.6c.62 4.5 2.28 6.16 6.78 6.78-4.5.62-6.16 2.28-6.78 6.78-.62-4.5-2.28-6.16-6.78-6.78 4.5-.62 6.16-2.28 6.78-6.78Z" fill="#fff"/><circle cx="18.4" cy="18.2" r="2.1" fill="#fff"/></svg>
+      </span>
+      Траектория
+    </a>
+    <nav class="nav-links">
+      <a href="#how">Как устроено</a>
+      <a href="#why">Отличия</a>
+      <a href="#legal">Аттестат</a>
+      <a href="#prices">Тарифы</a>
+      <a href="#faq">Вопросы</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="app.html" class="btn btn-ghost">Войти в кабинет</a>
+      <a href="#cta" class="btn btn-primary">Записаться на сентябрь</a>
+      <button class="burger" id="burger" aria-label="Меню"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#how">Как устроено</a>
+  <a href="#why">Отличия</a>
+  <a href="#legal">Аттестат</a>
+  <a href="#prices">Тарифы</a>
+  <a href="#faq">Вопросы</a>
+  <a href="#cta" class="btn btn-primary">Записаться на сентябрь</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"><div class="orb orb-1"></div><div class="orb orb-2"></div><div class="grid-bg"></div></div>
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow"><span class="dot"></span>Набор первой когорты · старт 1 сентября 2026</span>
+      <h1>Школа, которая подстраивается <span class="serif grad-text">под ребёнка</span> — а не наоборот</h1>
+      <p class="lead">Семейная онлайн-школа 1–11 класс. У каждого ребёнка — своя образовательная траектория: программу и темп строит ИИ вместе с живым наставником. Учёба через проекты и интерес, без стресса и уравниловки. С официальным аттестатом.</p>
+      <div class="hero-cta">
+        <a href="onboarding.html" class="btn btn-primary">Пройти диагностику
+          <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="#how" class="btn btn-ghost">Как это работает</a>
+      </div>
+      <div class="hero-trust">
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Официальный аттестат</span>
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>ИИ-тьютор 24/7</span>
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Личный наставник</span>
+      </div>
+    </div>
+
+    <div style="position:relative">
+      <div class="pcard">
+        <div class="pcard-head">
+          <div class="pcard-kid">
+            <div class="pcard-ava">М</div>
+            <div><div class="n">Мира, 6 класс</div><div class="m">Личная траектория · день 24</div></div>
+          </div>
+          <span class="pcard-live"><span class="pulse"></span>онлайн</span>
+        </div>
+        <div class="pcard-label">План на сегодня — собран под Миру</div>
+        <div class="plan-item">
+          <div class="ic a">📐</div>
+          <div class="tx"><div class="t">Математика · дроби</div><div class="s">сложность ↑ — тема даётся легко</div></div>
+          <span class="tag lvl">адаптив</span>
+        </div>
+        <div class="plan-item">
+          <div class="ic b">🚀</div>
+          <div class="tx"><div class="t">Проект «Космический бюджет»</div><div class="s">математика + любимая тема</div></div>
+          <span class="tag new">проект</span>
+        </div>
+        <div class="plan-item">
+          <div class="ic c">📖</div>
+          <div class="tx"><div class="t">Литература · эссе</div><div class="s">сдано, проверено ИИ + наставник</div></div>
+          <span class="tag done">готово</span>
+        </div>
+        <div class="pcard-foot">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2Z" stroke="currentColor" stroke-width="1.8"/><path d="M9 21h6M10 17v4M14 17v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          <div class="ft"><b>ИИ-тьютор:</b> заметил пробел в теме «проценты» — добавил 2 коротких блока на завтра.</div>
+        </div>
+      </div>
+      <div class="float-badge">
+        <svg class="spark" viewBox="0 0 60 40" fill="none"><path d="M4 34c10 2 14-22 24-22 8 0 8 14 16 14" stroke="url(#g)" stroke-width="3" stroke-linecap="round"/><circle cx="44" cy="26" r="4" fill="#ff6a52"/><defs><linearGradient id="g" x1="0" y1="0" x2="60" y2="0"><stop stop-color="#4f46e5"/><stop offset="1" stop-color="#ff6a52"/></linearGradient></defs></svg>
+        <div><div class="fb-t">Прогресс за месяц</div><div class="fb-v grad-text">+31%</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="band">
+  <div class="wrap stats">
+    <div class="stat reveal"><div class="v">1–11</div><div class="l">классы · полная замена школы</div></div>
+    <div class="stat reveal"><div class="v grad-text">100%</div><div class="l">индивидуальный план каждому</div></div>
+    <div class="stat reveal"><div class="v">24/7</div><div class="l">ИИ-тьютор всегда на связи</div></div>
+    <div class="stat reveal"><div class="v">до 8</div><div class="l">детей в мини-группе</div></div>
+  </div>
+</div>
+
+<!-- PROBLEM / COMPARE -->
+<section style="padding:88px 0">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow"><span class="dot"></span>Зачем это нужно</span>
+      <h2>Массовая школа учит всех <span class="serif grad-text">одинаково</span>. Дети — разные.</h2>
+      <p>Один темп на 30 человек: кому-то скучно, кто-то не успевает, а интерес гаснет у всех. Мы строим учёбу вокруг конкретного ребёнка.</p>
+    </div>
+    <div class="compare">
+      <div class="comp-card old reveal">
+        <h3>Обычная школа</h3>
+        <div class="sub">Одна программа. Один темп. Оценка вместо смысла.</div>
+        <ul class="comp-list">
+          <li><span class="tick-old"><svg viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></span>Один темп на класс — скучно сильным, тяжело остальным</li>
+          <li><span class="tick-old"><svg viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></span>Учёба ради оценок и стресс перед проверками</li>
+          <li><span class="tick-old"><svg viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></span>Пробелы копятся — их некому заметить вовремя</li>
+          <li><span class="tick-old"><svg viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></span>«Зачем мне это?» — без ответа</li>
+        </ul>
+      </div>
+      <div class="comp-card new reveal">
+        <h3>Траектория</h3>
+        <div class="sub">Своя программа. Свой темп. Смысл вместо зубрёжки.</div>
+        <ul class="comp-list">
+          <li><span class="tick-new"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Индивидуальный темп: сильные темы — быстрее, сложные — с поддержкой</li>
+          <li><span class="tick-new"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Учёба через проекты и интерес, без гонки за оценками</li>
+          <li><span class="tick-new"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>ИИ ловит пробел сразу и добавляет объяснение в план</li>
+          <li><span class="tick-new"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Личный наставник держит мотивацию и связь с родителем</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW -->
+<section id="how" style="padding:20px 0 88px">
+  <div class="wrap how">
+    <div class="sec-head reveal">
+      <span class="eyebrow"><span class="dot"></span>Как устроено обучение</span>
+      <h2>От диагностики — к <span class="serif grad-text">своей траектории</span></h2>
+      <p>Четыре шага, в которых ИИ и живой наставник работают вместе на одного ребёнка.</p>
+    </div>
+    <div class="how-track">
+      <svg class="traj-line" viewBox="0 0 1000 60" preserveAspectRatio="none" fill="none">
+        <path d="M20 40 C 260 40, 260 20, 500 22 S 740 8, 980 12" stroke="url(#tg)" stroke-width="3" stroke-dasharray="2 10" stroke-linecap="round"/>
+        <defs><linearGradient id="tg" x1="0" y1="0" x2="1000" y2="0"><stop stop-color="#4f46e5"/><stop offset="1" stop-color="#ff6a52"/></linearGradient></defs>
+      </svg>
+      <div class="step reveal"><div class="num">1</div><h4>Диагностика</h4><p>Оцениваем знания, интересы и темп ребёнка. Никаких «средних по классу» — только он.</p></div>
+      <div class="step reveal"><div class="num">2</div><h4>Личный план</h4><p>ИИ вместе с методистом собирает индивидуальную программу и порядок тем под ребёнка.</p></div>
+      <div class="step reveal"><div class="num">3</div><h4>Учёба через проекты</h4><p>Короткие уроки, практика и проекты по интересам. ИИ-тьютор рядом 24/7, мини-группы вживую.</p></div>
+      <div class="step reveal"><div class="num">4</div><h4>Наставник и аттестат</h4><p>Куратор ведёт прогресс и мотивацию, мы сопровождаем аттестацию и получение аттестата.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY / PILLARS -->
+<section id="why" style="padding:20px 0 88px">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow"><span class="dot"></span>Наши два отличия</span>
+      <h2>Не «школа в Zoom». <span class="serif grad-text">Другая педагогика + ИИ</span></h2>
+      <p>Эти две вещи усиливают друг друга: ИИ делает персонализацию возможной в масштабе, а методология — человечной.</p>
+    </div>
+    <div class="pillars">
+      <div class="pillar ai reveal">
+        <div class="p-orb"></div>
+        <div class="pillar-in">
+          <div class="p-ic"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3a5 5 0 0 0-5 5v1a4 4 0 0 0 0 8h1a4 4 0 0 0 8 0h1a4 4 0 0 0 0-8V8a5 5 0 0 0-5-5Z" stroke="currentColor" stroke-width="1.7"/><path d="M12 8v9" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></div>
+          <h3>AI-персонализация</h3>
+          <p>Не наклейка «с ИИ», а ядро продукта. Программа живая: подстраивается под ребёнка каждый день.</p>
+          <ul class="p-feats">
+            <li><span class="fi"><svg viewBox="0 0 24 24" fill="none"><path d="M4 18 10 12l4 4 6-8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="ft"><b>Адаптивная сложность</b><span>Задания подстраиваются под уровень в реальном времени</span></span></li>
+            <li><span class="fi"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2Z" stroke="currentColor" stroke-width="1.7"/></svg></span><span class="ft"><b>ИИ-тьютор 24/7</b><span>Объяснит, проверит, ответит «зачем это» — ждать не нужно</span></span></li>
+            <li><span class="fi"><svg viewBox="0 0 24 24" fill="none"><path d="M3 3v18h18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M7 14l4-4 3 3 5-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="ft"><b>Раннее выявление пробелов</b><span>Система видит слабое место и чинит его до того, как оно накопится</span></span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="pillar method reveal">
+        <div class="p-orb"></div>
+        <div class="pillar-in">
+          <div class="p-ic"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3 3 8l9 5 9-5-9-5Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M7 10.5V15c0 1.5 2.5 3 5 3s5-1.5 5-3v-4.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></div>
+          <h3>Методология без стресса</h3>
+          <p>Учёба через интерес и практику, а не через страх оценки. Ребёнок понимает, зачем учится.</p>
+          <ul class="p-feats">
+            <li><span class="fi"><svg viewBox="0 0 24 24" fill="none"><path d="M5 3h14v18l-7-4-7 4V3Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></span><span class="ft"><b>Обучение через проекты</b><span>Знания применяются к реальным задачам, а не заучиваются</span></span></li>
+            <li><span class="fi"><svg viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 5.5-7 10-7 10Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></span><span class="ft"><b>Без гонки за оценками</b><span>Фокус на понимании и прогрессе ребёнка, а не на баллах</span></span></li>
+            <li><span class="fi"><svg viewBox="0 0 24 24" fill="none"><path d="M17 20a5 5 0 0 0-10 0M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span><span class="ft"><b>Живой наставник</b><span>Держит мотивацию, замечает состояние ребёнка, на связи с родителем</span></span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAM + LEGAL -->
+<section id="legal" style="padding:20px 0 88px">
+  <div class="wrap legal-grid">
+    <div class="reveal">
+      <span class="eyebrow"><span class="dot"></span>Программа и аттестат</span>
+      <h2 style="font-size:clamp(28px,3.6vw,42px);margin:16px 0 10px">Полная программа 1–11 <span class="serif grad-text">и официальный аттестат</span></h2>
+      <p style="font-size:17px;color:var(--muted)">Это не кружок и не репетиторство. Ребёнок получает полное среднее образование по ФГОС — на семейной форме обучения, законно.</p>
+      <div class="grades">
+        <span class="grade">1</span><span class="grade">2</span><span class="grade">3</span><span class="grade">4</span><span class="grade">5</span><span class="grade">6</span><span class="grade">7</span><span class="grade">8</span><span class="grade">9</span><span class="grade">10</span><span class="grade">11</span>
+      </div>
+      <ol class="legal-steps">
+        <li><div class="lt"><b>Переход на семейное обучение.</b> <span>Родители уведомляют орган управления образованием — это право семьи по ФЗ-273 «Об образовании».</span></div></li>
+        <li><div class="lt"><b>Учёба в «Траектории».</b> <span>Полная программа, ИИ-план, наставник, проекты — всё сопровождение на нас.</span></div></li>
+        <li><div class="lt"><b>Аттестация у аккредитованного партнёра.</b> <span>Промежуточную аттестацию и ОГЭ/ЕГЭ ребёнок сдаёт в аккредитованной школе-партнёре, часто дистанционно.</span></div></li>
+        <li><div class="lt"><b>Аттестат государственного образца.</b> <span>После итоговой аттестации — официальный документ об образовании.</span></div></li>
+      </ol>
+    </div>
+    <div class="legal-card reveal">
+      <span class="badge-official"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2 4 6v6c0 5 3.4 8.5 8 10 4.6-1.5 8-5 8-10V6l-8-4Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Всё по закону</span>
+      <h3>Аттестат — государственного образца</h3>
+      <p>Аттестация и аттестат обеспечиваются <b>в партнёрстве с аккредитованными школами</b>. Так устроено семейное образование в России — и так работают ведущие онлайн-школы страны.</p>
+      <p>Вы получаете и гибкость семейного обучения, и полноценный документ государственного образца. Всё прикрепление и подготовку к аттестации мы берём на себя.</p>
+      <div class="legal-note">Полное сопровождение прикрепления, промежуточной аттестации и итоговых экзаменов (ОГЭ/ЕГЭ) — на нашей стороне.</div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICES -->
+<section id="prices" style="padding:20px 0 88px">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow"><span class="dot"></span>Тарифы</span>
+      <h2>Прозрачная цена <span class="serif grad-text">за настоящую персонализацию</span></h2>
+      <p>Дешевле репетиторов по всем предметам — и это целая школа, а не разовые занятия. Стоимость финализируется к старту набора.</p>
+    </div>
+    <div class="prices">
+      <div class="price reveal">
+        <div class="pname">Базовый</div>
+        <div class="pdesc">Для самостоятельных семей, которым нужна система и ИИ-поддержка.</div>
+        <div class="pcost">9 900 ₽<span>/мес</span></div>
+        <ul class="pfeat">
+          <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Платформа и индивидуальный план</li>
+          <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>ИИ-тьютор 24/7</li>
+          <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Групповые занятия</li>
+          <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Сопровождение аттестации</li>
+        </ul>
+        <a href="#cta" class="btn btn-ghost">Выбрать</a>
+      </div>
+      <div class="price pop reveal">
+        <span class="pop-tag">Выбор большинства</span>
+        <div class="pname">Стандарт</div>
+        <div class="pdesc">Полное сопровождение с личным наставником для ребёнка.</div>
+        <div class="pcost">17 900 ₽<span>/мес</span></div>
+        <ul class="pfeat">
+          <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Всё из «Базового»</li>
+          <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Личный наставник-куратор</li>
+          <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Меньшие группы</li>
+          <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Отчёты о прогрессе родителю</li>
+        </ul>
+        <a href="#cta" class="btn btn-primary">Выбрать</a>
+      </div>
+      <div class="price reveal">
+        <div class="pname">Премиум</div>
+        <div class="pdesc">Индивидуальные занятия и эксперт-наставник под особый запрос.</div>
+        <div class="pcost">34 900 ₽<span>/мес</span></div>
+        <ul class="pfeat">
+          <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Всё из «Стандарта»</li>
+          <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Индивидуальные занятия</li>
+          <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Персональный тьютор-эксперт</li>
+          <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Приоритетная поддержка</li>
+        </ul>
+        <a href="#cta" class="btn btn-ghost">Выбрать</a>
+      </div>
+    </div>
+    <p class="price-note">Начать можно с разовой <b>диагностики + личного плана за 4 900 ₽</b> — увидите траекторию ребёнка ещё до решения о подписке.</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" style="padding:20px 0 88px">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow"><span class="dot"></span>Частые вопросы</span>
+      <h2>Коротко о <span class="serif grad-text">главном</span></h2>
+    </div>
+    <div class="faq">
+      <div class="q reveal"><div class="q-head">Это законно? Ребёнок не «прогуливает» школу?<span class="qi"><svg viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></span></div><div class="q-body"><p>Да, полностью законно. Семейное обучение — одна из форм получения образования по ФЗ-273 «Об образовании». Родители имеют право перевести ребёнка на семейную форму, уведомив орган управления образованием, и учиться где угодно, включая нашу школу.</p></div></div>
+      <div class="q reveal"><div class="q-head">Как ребёнок получит аттестат?<span class="qi"><svg viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></span></div><div class="q-body"><p>Промежуточную аттестацию и итоговые экзамены (ОГЭ/ЕГЭ) ребёнок сдаёт в аккредитованной школе-партнёре — часто дистанционно. После итоговой аттестации выдаётся аттестат государственного образца. Мы полностью сопровождаем этот процесс — от прикрепления до получения документа.</p></div></div>
+      <div class="q reveal"><div class="q-head">Что с ОГЭ и ЕГЭ?<span class="qi"><svg viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></span></div><div class="q-body"><p>Готовим к ним целенаправленно в рамках траектории старших классов. ИИ отслеживает пробелы по кодификатору, а наставник ведёт подготовку. Сами экзамены сдаются официально через аккредитованного партнёра.</p></div></div>
+      <div class="q reveal"><div class="q-head">В чём именно «искусственный интеллект»?<span class="qi"><svg viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></span></div><div class="q-body"><p>ИИ делает три вещи: собирает индивидуальный учебный план после диагностики, адаптирует сложность заданий под ребёнка и работает тьютором 24/7 — объясняет, проверяет, отвечает на вопросы. Он не заменяет учителя и наставника, а снимает рутину и находит пробелы раньше, чем они накопятся.</p></div></div>
+      <div class="q reveal"><div class="q-head">А если ребёнку нужен живой человек, а не программа?<span class="qi"><svg viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></span></div><div class="q-body"><p>Именно поэтому у каждого ребёнка есть личный наставник и живые занятия в мини-группах. ИИ и человек работают в паре: технологии — на персонализацию и скорость, люди — на мотивацию, общение и поддержку.</p></div></div>
+      <div class="q reveal"><div class="q-head">Когда старт и как записаться?<span class="qi"><svg viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></span></div><div class="q-body"><p>Первая когорта стартует 1 сентября 2026, число мест ограничено. Оставьте заявку — мы проведём бесплатную консультацию, диагностику ребёнка и покажем его будущую траекторию ещё до старта.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta" class="cta-sec">
+  <div class="wrap">
+    <div class="cta-box reveal">
+      <div class="cta-orb a"></div><div class="cta-orb b"></div>
+      <div class="cta-in">
+        <div>
+          <span class="eyebrow"><span class="dot"></span>Набор ограничен · старт 1 сентября</span>
+          <h2>Покажем траекторию вашего ребёнка — бесплатно</h2>
+          <p>Оставьте заявку. Мы свяжемся, проведём консультацию и диагностику, соберём индивидуальный план — вы увидите, как будет учиться именно ваш ребёнок.</p>
+          <p style="margin-top:14px;font-size:15px">📞 Или напишите нам: <b>ast.control@mail.ru</b></p>
+        </div>
+        <div>
+          <form class="form" id="leadForm">
+            <div class="field"><label>Имя родителя</label><input type="text" name="name" placeholder="Как к вам обращаться" required></div>
+            <div class="field"><label>Телефон или Telegram</label><input type="text" name="contact" placeholder="+7 ... или @username" required></div>
+            <div class="field"><label>Класс ребёнка</label>
+              <select name="grade" required>
+                <option value="">Выберите класс</option>
+                <option>1 класс</option><option>2 класс</option><option>3 класс</option><option>4 класс</option><option>5 класс</option><option>6 класс</option><option>7 класс</option><option>8 класс</option><option>9 класс</option><option>10 класс</option><option>11 класс</option>
+              </select>
+            </div>
+            <button type="submit" class="btn">Записаться на диагностику</button>
+            <div class="fine">Нажимая кнопку, вы соглашаетесь на обработку персональных данных. Биометрию и лишние данные не собираем.</div>
+          </form>
+          <div class="form-ok" id="formOk">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M12 2 4 6v6c0 5 3.4 8.5 8 10 4.6-1.5 8-5 8-10V6l-8-4Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <h3>Заявка принята!</h3>
+            <p>Спасибо. Мы свяжемся с вами в течение рабочего дня и договоримся о бесплатной диагностике.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="#" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><path d="M10.3 2.6c.62 4.5 2.28 6.16 6.78 6.78-4.5.62-6.16 2.28-6.78 6.78-.62-4.5-2.28-6.16-6.78-6.78 4.5-.62 6.16-2.28 6.78-6.78Z" fill="#fff"/><circle cx="18.4" cy="18.2" r="2.1" fill="#fff"/></svg></span>Траектория</a>
+        <p>Семейная онлайн-школа 1–11 класс. Своя образовательная траектория для каждого ребёнка: ИИ + наставник, учёба через смысл, официальный аттестат.</p>
+      </div>
+      <div class="foot-col"><h5>Школа</h5><a href="#how">Как устроено</a><a href="#why">Отличия</a><a href="#legal">Программа и аттестат</a><a href="#prices">Тарифы</a></div>
+      <div class="foot-col"><h5>Родителям</h5><a href="#faq">Частые вопросы</a><a href="#legal">Переход на семейное обучение</a><a href="#cta">Записаться</a></div>
+      <div class="foot-col"><h5>Контакты</h5><a href="mailto:ast.control@mail.ru">ast.control@mail.ru</a><a href="#cta">Оставить заявку</a></div>
+    </div>
+    <div class="foot-disc">
+      «Траектория» оказывает образовательные услуги в формате семейного обучения (ФЗ-273 «Об образовании»). Промежуточная и итоговая аттестация, а также аттестат государственного образца обеспечиваются в партнёрстве с аккредитованными образовательными организациями. Итоговые баллы ОГЭ/ЕГЭ и поступление зависят от ученика — наша задача выстроить сильную индивидуальную подготовку. По всем вопросам и техподдержке: <a href="mailto:ast.control@mail.ru" style="color:var(--indigo)">ast.control@mail.ru</a>.
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Траектория. Онлайн-школа полного цикла 1–11 класс.</span>
+      <span>Техподдержка: ast.control@mail.ru</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// header scrolled
+const hdr=document.getElementById('hdr');
+addEventListener('scroll',()=>hdr.classList.toggle('scrolled',scrollY>10));
+// burger
+const burger=document.getElementById('burger'),mm=document.getElementById('mobileMenu');
+burger.addEventListener('click',()=>{mm.classList.toggle('open');});
+mm.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>mm.classList.remove('open')));
+// FAQ accordion
+document.querySelectorAll('.q').forEach(q=>{
+  q.querySelector('.q-head').addEventListener('click',()=>{
+    const open=q.classList.contains('open');
+    document.querySelectorAll('.q').forEach(o=>{o.classList.remove('open');o.querySelector('.q-body').style.maxHeight=null;});
+    if(!open){q.classList.add('open');const b=q.querySelector('.q-body');b.style.maxHeight=b.scrollHeight+'px';}
+  });
+});
+// reveal on scroll
+const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.14});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+// form (demo)
+const form=document.getElementById('leadForm');
+form.addEventListener('submit',(e)=>{e.preventDefault();form.style.display='none';document.getElementById('formOk').classList.add('show');});
+</script>
+</body>
+</html>
