@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Урок · Сложение дробей — Люминта</title>
+<title>Урок · Сложение и вычитание дробей — Люминта</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Lora:ital,wght@1,600&display=swap" media="print" onload="this.media='all'">
@@ -114,7 +114,7 @@ a{color:inherit;text-decoration:none}svg{display:block}
 <body>
 <div class="top">
   <a href="app.html" class="back"><svg viewBox="0 0 24 24" width="18" fill="none"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>В кабинет</a>
-  <span class="crumb">Математика › Дроби › <b>Сложение дробей</b></span>
+  <span class="crumb">Математика · 6 класс › Обыкновенные дроби › <b>Сложение и вычитание</b></span>
   <div class="top-right">
     <div class="mbar">Мастерство <span class="tk"><i id="mFill"></i></span><span id="mVal">68</span></div>
     <span class="pill xp">⭐ +<span id="xpNow">0</span> XP</span>
@@ -138,7 +138,18 @@ a{color:inherit;text-decoration:none}svg{display:block}
       <p style="font-size:13.5px;color:var(--muted)">Сначала короткое видео, потом — практика. Мы учим <b>через действие</b>: ты сам придёшь к правилу, а не просто запомнишь его.</p>
     </div>
 
-    <div class="steps" id="steps"><span class="s now"></span><span class="s"></span><span class="s"></span></div>
+    <div class="card" style="margin-bottom:18px">
+      <div style="font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--indigo);margin-bottom:10px">✦ Теория</div>
+      <h3 style="font-size:19px;margin-bottom:8px">Как складывать и вычитать дроби</h3>
+      <p style="font-size:14.5px;color:var(--ink-2);margin-bottom:14px">Приведи дроби к <b>общему знаменателю</b> → сложи или вычти <b>числители</b> → знаменатель оставь → при необходимости <b>сократи</b> результат.</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <div style="flex:1;min-width:210px;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:14px;font-size:14.5px"><b>Пример 1.</b><br>1/2 + 1/3 = 3/6 + 2/6 = <b style="color:var(--green)">5/6</b></div>
+        <div style="flex:1;min-width:210px;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:14px;font-size:14.5px"><b>Пример 2.</b><br>3/4 − 1/6 = 9/12 − 2/12 = <b style="color:var(--green)">7/12</b></div>
+      </div>
+    </div>
+
+    <div style="font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--coral);margin-bottom:10px">✦ Практика · реши сам</div>
+    <div class="steps" id="steps"><span class="s now"></span><span class="s"></span><span class="s"></span><span class="s"></span></div>
 
     <div class="card inter" id="interCard">
       <!-- filled by JS -->
@@ -161,21 +172,26 @@ a{color:inherit;text-decoration:none}svg{display:block}
 
 <script>
 const STEPS=[
-  {kick:'Шаг 1 · подумай сам',q:'Чтобы сложить 1/2 и 1/4, что нужно сделать сначала?',sub:'Learn-by-doing: попробуй догадаться, а не вспомнить правило.',
-   opts:['Привести к общему знаменателю','Сложить числители и знаменатели'],ok:0,
-   okFb:'Именно! Знаменатели должны стать одинаковыми — только тогда дроби «одной длины» и их можно складывать.',
-   noFb:'Смотри: 1/2 и 1/4 — это разные «доли». Их нельзя сложить в лоб. Сначала сделаем знаменатели одинаковыми.',
-   hint:'Представь пиццу: половина и четвертинка — куски разного размера. Приведём к одному размеру кусочка.'},
-  {kick:'Шаг 2 · общий знаменатель',q:'Какой общий знаменатель у 1/2 и 1/4?',sub:'Наименьшее число, которое делится и на 2, и на 4.',
-   opts:['4','6','8','2'],ok:0,
-   okFb:'Верно, 4! Тогда 1/2 = 2/4. Теперь обе дроби с знаменателем 4.',
-   noFb:'Почти. Нужно наименьшее число, которое делится и на 2, и на 4 — это 4. Тогда 1/2 превращается в 2/4.',
-   hint:'2 уже помещается в 4 ровно два раза. Значит общий знаменатель — 4, и 1/2 = 2/4.'},
-  {kick:'Шаг 3 · собери ответ',q:'Теперь сложи: 2/4 + 1/4 = ?',sub:'Знаменатели одинаковые — складываем только числители.',
-   opts:['3/4','3/8','2/8','1/2'],ok:0,
-   okFb:'Отлично! 2/4 + 1/4 = 3/4. Ты вывел правило сам: общий знаменатель → сложить числители. 🎉',
-   noFb:'Знаменатель остаётся 4, складываем только верх: 2 + 1 = 3. Получается 3/4.',
-   hint:'Знаменатель не меняется при сложении. Складываем числители: 2 + 1.'}
+  {kick:'Задача 1',q:'Вычисли: 2/3 + 1/6',sub:'Приведи к общему знаменателю 6.',
+   opts:['5/6','3/9','3/6','1/2'],ok:0,
+   okFb:'Верно! 2/3 = 4/6, значит 4/6 + 1/6 = 5/6.',
+   noFb:'Приведём к знаменателю 6: 2/3 = 4/6. Тогда 4/6 + 1/6 = 5/6.',
+   hint:'Знаменатель 3 умножь на 2 → 6, числитель тоже: 2·2 = 4. Получишь 4/6.'},
+  {kick:'Задача 2',q:'Вычисли: 3/4 − 1/2',sub:'Общий знаменатель — 4.',
+   opts:['1/4','1/2','2/2','3/8'],ok:0,
+   okFb:'Верно! 1/2 = 2/4, значит 3/4 − 2/4 = 1/4.',
+   noFb:'1/2 = 2/4. Тогда 3/4 − 2/4 = 1/4.',
+   hint:'Приведи 1/2 к знаменателю 4 — это 2/4.'},
+  {kick:'Задача 3',q:'Вычисли: 5/8 + 1/4',sub:'Общий знаменатель — 8.',
+   opts:['7/8','6/12','6/8','3/4'],ok:0,
+   okFb:'Верно! 1/4 = 2/8, значит 5/8 + 2/8 = 7/8.',
+   noFb:'1/4 = 2/8. Тогда 5/8 + 2/8 = 7/8.',
+   hint:'1/4 = 2/8 — умножь числитель и знаменатель на 2.'},
+  {kick:'Задача 4 · не забудь сократить',q:'Вычисли: 5/6 − 1/2',sub:'Ответ нужно сократить до конца.',
+   opts:['1/3','2/6','5/12','4/4'],ok:0,
+   okFb:'Отлично! 5/6 − 3/6 = 2/6 = 1/3 — сократили на 2. 🎉',
+   noFb:'1/2 = 3/6. Тогда 5/6 − 3/6 = 2/6, а 2/6 сокращается до 1/3.',
+   hint:'Сначала 1/2 = 3/6. Получишь 2/6 — его можно сократить на 2.'}
 ];
 let idx=0,mastery=68,xp=0;
 const interCard=document.getElementById('interCard');

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Программа по математике 1–11 — Люминта</title>
+<meta name="description" content="Полная программа по математике 1–11 класс онлайн-школы Люминта: реальные темы по классам, карта знаний, эталонный модуль с живым уроком.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Lora:ital,wght@1,600&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Lora:ital,wght@1,600&display=swap"></noscript>
+<style>
+:root{
+  --bg:#fbf9f5;--bg-2:#f1ebe1;--surface:#ffffff;--ink:#181521;--ink-2:#2f2b3b;
+  --muted:#655f72;--muted-2:#9a93a6;--line:rgba(24,21,33,.09);--line-2:rgba(24,21,33,.15);
+  --indigo:#4f46e5;--violet:#7c5cff;--coral:#ff6a52;--gold:#f2a33c;--green:#12b277;--sky:#2f9bff;
+  --grad:linear-gradient(118deg,#4f46e5,#7c5cff 48%,#ff6a52);--shadow:0 24px 60px -32px rgba(53,38,92,.4);--shadow-sm:0 12px 30px -18px rgba(53,38,92,.3);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Manrope',system-ui,sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.55}
+h1,h2,h3,h4{letter-spacing:-.02em;line-height:1.14;font-weight:800}
+.serif{font-family:'Lora',Georgia,serif;font-style:italic;font-weight:600}
+a{color:inherit;text-decoration:none}svg{display:block}
+.grad-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:700;font-size:15px;padding:13px 22px;border-radius:12px;cursor:pointer;border:1px solid transparent;font-family:inherit;transition:.2s}
+.btn svg{width:17px;height:17px}
+.btn-primary{background:var(--grad);color:#fff;box-shadow:0 12px 28px -12px rgba(124,92,255,.7)}
+.btn-primary:hover{transform:translateY(-2px)}
+.btn-ghost{background:var(--surface);border-color:var(--line-2);color:var(--ink)}
+.btn-ghost:hover{background:var(--bg-2)}
+
+header{position:sticky;top:0;z-index:40;background:rgba(251,249,245,.85);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:70px}
+.logo{display:flex;align-items:center;gap:11px;font-weight:800;font-size:19px}
+.logo-mark{width:34px;height:34px;border-radius:10px;background:var(--grad);display:grid;place-items:center;box-shadow:0 8px 18px -6px rgba(124,92,255,.6)}
+.logo-mark svg{width:20px;height:20px}
+.nav-r{display:flex;gap:12px;align-items:center}
+
+.hero{padding:56px 0 34px;text-align:center;position:relative;overflow:hidden}
+.hero .orb{position:absolute;width:480px;height:480px;border-radius:50%;filter:blur(100px);background:radial-gradient(circle,rgba(124,92,255,.22),transparent 68%);top:-220px;left:50%;transform:translateX(-50%);z-index:0}
+.hero .in{position:relative;z-index:1}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--indigo);padding:7px 14px;border:1px solid var(--line-2);border-radius:100px;background:rgba(124,92,255,.06);margin-bottom:18px}
+.hero h1{font-size:clamp(30px,5vw,46px);margin-bottom:14px}
+.hero p{font-size:17px;color:var(--muted);max-width:620px;margin:0 auto}
+
+.stage{padding:34px 0}
+.stage-h{display:flex;align-items:center;gap:14px;margin-bottom:20px}
+.stage-h .num{width:46px;height:46px;border-radius:13px;background:var(--grad);color:#fff;display:grid;place-items:center;font-weight:800;font-size:15px;flex-shrink:0;text-align:center;line-height:1.05}
+.stage-h h2{font-size:23px}
+.stage-h p{font-size:13.5px;color:var(--muted)}
+.grade-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.gcard{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px;box-shadow:var(--shadow-sm)}
+.gcard h3{font-size:16px;margin-bottom:12px;display:flex;align-items:center;gap:10px}
+.gcard h3 .gb{width:30px;height:30px;border-radius:9px;background:var(--bg-2);display:grid;place-items:center;font-weight:800;font-size:13px;color:var(--indigo)}
+.topics{display:flex;flex-wrap:wrap;gap:7px}
+.topic{font-size:12.5px;font-weight:600;padding:6px 11px;border-radius:100px;background:var(--bg);border:1px solid var(--line);color:var(--ink-2)}
+.topic.key{background:rgba(79,70,229,.08);border-color:rgba(79,70,229,.25);color:var(--indigo)}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.subj-label{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:var(--muted-2);margin-bottom:10px}
+
+.highlight{background:linear-gradient(125deg,#2a2350,#4f46e5 60%,#7c5cff);color:#fff;border-radius:24px;padding:38px;position:relative;overflow:hidden;margin:20px 0}
+.highlight .ho{position:absolute;width:280px;height:280px;border-radius:50%;background:rgba(255,106,82,.4);filter:blur(70px);top:-100px;right:-50px}
+.highlight .in{position:relative;z-index:1}
+.highlight .eyebrow{color:#fff;border-color:rgba(255,255,255,.3);background:rgba(255,255,255,.12)}
+.highlight h2{font-size:26px;margin-bottom:10px}
+.highlight p{opacity:.9;font-size:15.5px;max-width:560px;margin-bottom:20px}
+.hl-nodes{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
+.hl-node{font-size:12.5px;font-weight:600;padding:6px 12px;border-radius:100px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.2)}
+.highlight .btn-white{background:#fff;color:var(--indigo)}
+.highlight .btn-white:hover{transform:translateY(-2px)}
+
+.note{text-align:center;font-size:13px;color:var(--muted-2);max-width:640px;margin:10px auto 60px;padding-top:24px;border-top:1px solid var(--line)}
+@media(max-width:760px){.grade-grid,.split{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><path d="M10.3 2.6c.62 4.5 2.28 6.16 6.78 6.78-4.5.62-6.16 2.28-6.78 6.78-.62-4.5-2.28-6.16-6.78-6.78 4.5-.62 6.16-2.28 6.78-6.78Z" fill="#fff"/><circle cx="18.4" cy="18.2" r="2.1" fill="#fff"/></svg></span>Люминта</a>
+    <div class="nav-r">
+      <a href="index.html" class="btn btn-ghost">← На сайт</a>
+      <a href="onboarding.html" class="btn btn-primary">Пройти диагностику</a>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="orb"></div>
+  <div class="wrap in">
+    <span class="eyebrow">✦ Программа · Математика 1–11</span>
+    <h1>Математика от первого класса <span class="serif grad-text">до ЕГЭ</span></h1>
+    <p>Реальная программа по стандарту РФ, разбитая на модули и микроузлы карты знаний. ИИ ведёт ребёнка по ней личным маршрутом: сильные темы — быстрее, пробелы — с повторением.</p>
+  </div>
+</section>
+
+<div class="wrap">
+  <!-- 1-4 -->
+  <section class="stage">
+    <div class="stage-h"><div class="num">1–4</div><div><h2>Начальная школа</h2><p>Единый предмет «Математика»: арифметика и начала геометрии</p></div></div>
+    <div class="grade-grid">
+      <div class="gcard"><h3><span class="gb">1</span>1 класс</h3><div class="topics"><span class="topic key">Числа 0–20</span><span class="topic">Сложение и вычитание</span><span class="topic">Состав числа</span><span class="topic">Задачи в 1 действие</span><span class="topic">Отрезок, длина (см)</span></div></div>
+      <div class="gcard"><h3><span class="gb">2</span>2 класс</h3><div class="topics"><span class="topic">Числа до 100</span><span class="topic">Столбиком</span><span class="topic key">Таблица умножения</span><span class="topic">Порядок действий</span><span class="topic">Периметр</span></div></div>
+      <div class="gcard"><h3><span class="gb">3</span>3 класс</h3><div class="topics"><span class="topic">Числа до 1000</span><span class="topic">Умножение/деление столбиком</span><span class="topic key">Доли</span><span class="topic">Площадь прямоугольника</span><span class="topic">Уравнения</span></div></div>
+      <div class="gcard"><h3><span class="gb">4</span>4 класс</h3><div class="topics"><span class="topic">Многозначные числа</span><span class="topic">4 действия письменно</span><span class="topic key">Скорость·время·расстояние</span><span class="topic">Величины</span><span class="topic">Диаграммы</span></div></div>
+    </div>
+  </section>
+
+  <!-- 5-6 -->
+  <section class="stage">
+    <div class="stage-h"><div class="num">5–6</div><div><h2>Математика 5–6</h2><p>Числа, дроби, проценты, начала алгебры и геометрии</p></div></div>
+    <div class="grade-grid">
+      <div class="gcard"><h3><span class="gb">5</span>5 класс</h3><div class="topics"><span class="topic">Натуральные числа</span><span class="topic">Степень (квадрат, куб)</span><span class="topic">Делимость</span><span class="topic key">Обыкновенные дроби</span><span class="topic key">Десятичные дроби</span><span class="topic">Площадь, объём</span></div></div>
+      <div class="gcard"><h3><span class="gb">6</span>6 класс</h3><div class="topics"><span class="topic">НОД и НОК</span><span class="topic key">Действия с дробями</span><span class="topic">Отношения и пропорции</span><span class="topic key">Проценты</span><span class="topic">Отрицательные числа</span><span class="topic">Координатная плоскость</span></div></div>
+    </div>
+  </section>
+
+  <!-- 7-9 -->
+  <section class="stage">
+    <div class="stage-h"><div class="num">7–9</div><div><h2>Алгебра и геометрия</h2><p>Предмет разделяется; добавляются вероятность и статистика; в 9 классе — ОГЭ</p></div></div>
+    <div class="split">
+      <div>
+        <div class="subj-label">Алгебра</div>
+        <div class="gcard" style="margin-bottom:14px"><h3><span class="gb">7</span>7 класс</h3><div class="topics"><span class="topic key">Линейные уравнения</span><span class="topic">Линейная функция</span><span class="topic">Одночлены и многочлены</span><span class="topic key">Формулы сокр. умножения</span><span class="topic">Системы уравнений</span></div></div>
+        <div class="gcard" style="margin-bottom:14px"><h3><span class="gb">8</span>8 класс</h3><div class="topics"><span class="topic">Рациональные дроби</span><span class="topic key">Квадратные корни</span><span class="topic key">Квадратные уравнения</span><span class="topic">Неравенства</span></div></div>
+        <div class="gcard"><h3><span class="gb">9</span>9 класс</h3><div class="topics"><span class="topic">Квадратичная функция</span><span class="topic key">Прогрессии</span><span class="topic">Вероятность и статистика</span><span class="topic key">Подготовка к ОГЭ</span></div></div>
+      </div>
+      <div>
+        <div class="subj-label">Геометрия</div>
+        <div class="gcard" style="margin-bottom:14px"><h3><span class="gb">7</span>7 класс</h3><div class="topics"><span class="topic key">Треугольники</span><span class="topic">Признаки равенства</span><span class="topic">Параллельные прямые</span></div></div>
+        <div class="gcard" style="margin-bottom:14px"><h3><span class="gb">8</span>8 класс</h3><div class="topics"><span class="topic">Четырёхугольники</span><span class="topic">Площадь</span><span class="topic key">Теорема Пифагора</span><span class="topic">Подобие</span></div></div>
+        <div class="gcard"><h3><span class="gb">9</span>9 класс</h3><div class="topics"><span class="topic">Векторы, координаты</span><span class="topic key">Тригонометрия</span><span class="topic">Теоремы синусов и косинусов</span><span class="topic">Окружность и круг</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10-11 -->
+  <section class="stage">
+    <div class="stage-h"><div class="num">10–11</div><div><h2>Старшая школа</h2><p>Алгебра и начала анализа + стереометрия; в 11 классе — ЕГЭ</p></div></div>
+    <div class="split">
+      <div>
+        <div class="subj-label">Алгебра и начала анализа</div>
+        <div class="gcard" style="margin-bottom:14px"><h3><span class="gb">10</span>10 класс</h3><div class="topics"><span class="topic key">Тригонометрия</span><span class="topic">Показательная функция</span><span class="topic key">Логарифмы</span><span class="topic">Начала производной</span></div></div>
+        <div class="gcard"><h3><span class="gb">11</span>11 класс</h3><div class="topics"><span class="topic key">Производная и её применение</span><span class="topic key">Интеграл</span><span class="topic">Уравнения и неравенства</span><span class="topic">Вероятность</span><span class="topic key">Подготовка к ЕГЭ</span></div></div>
+      </div>
+      <div>
+        <div class="subj-label">Геометрия (стереометрия)</div>
+        <div class="gcard" style="margin-bottom:14px"><h3><span class="gb">10</span>10 класс</h3><div class="topics"><span class="topic">Аксиомы стереометрии</span><span class="topic key">Параллельность и перпендикулярность</span><span class="topic key">Многогранники</span></div></div>
+        <div class="gcard"><h3><span class="gb">11</span>11 класс</h3><div class="topics"><span class="topic key">Тела вращения</span><span class="topic key">Объёмы и площади поверхностей</span><span class="topic">Координаты в пространстве</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- highlight exemplar -->
+  <section class="highlight">
+    <div class="ho"></div>
+    <div class="in">
+      <span class="eyebrow">✦ Эталонный модуль · вживую</span>
+      <h2>«Обыкновенные дроби» · 6 класс</h2>
+      <p>Один модуль наполнен полностью — как выглядит настоящая учёба в Люминте: карта знаний из микроузлов, теория с разбором, интерактивная практика с мгновенной проверкой и проект.</p>
+      <div class="hl-nodes">
+        <span class="hl-node">Сокращение дробей</span><span class="hl-node">Общий знаменатель</span><span class="hl-node">Сравнение</span><span class="hl-node">Сложение и вычитание</span><span class="hl-node">Умножение</span><span class="hl-node">Деление</span><span class="hl-node">Проект</span>
+      </div>
+      <a href="lesson.html" class="btn btn-white"><svg viewBox="0 0 24 24" fill="none"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>Открыть живой урок модуля</a>
+    </div>
+  </section>
+
+  <p class="note">Программа приведена по стандарту РФ (ФГОС; учебники Моро, Виленкин/Мерзляк, Макарычев, Атанасян и др.) как основа платформы. Перед боевым запуском — методическая проверка и привязка к конкретной УМК. Аналогично строятся программы по остальным предметам 1–11.</p>
+</div>
+</body>
+</html>
