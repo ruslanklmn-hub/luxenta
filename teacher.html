@@ -6,25 +6,25 @@
 <title>Кабинет наставника — Люксента</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Lora:ital,wght@1,600&display=swap" media="print" onload="this.media='all'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Lora:ital,wght@1,600&display=swap"></noscript>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Spectral:ital,wght@1,600&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Spectral:ital,wght@1,600&display=swap"></noscript>
 <style>
 :root{
-  --bg:#f6f3ee;--bg-2:#ece6dc;--surface:#ffffff;--ink:#181521;--ink-2:#2f2b3b;
-  --muted:#655f72;--muted-2:#9a93a6;--line:rgba(24,21,33,.09);--line-2:rgba(24,21,33,.15);
-  --indigo:#4f46e5;--violet:#7c5cff;--coral:#ff6a52;--gold:#f2a33c;--green:#12b277;--sky:#2f9bff;
-  --grad:linear-gradient(118deg,#4f46e5,#7c5cff 48%,#ff6a52);--grad-2:linear-gradient(118deg,#5b52ff,#9a6bff);
-  --shadow:0 24px 60px -32px rgba(53,38,92,.4);--shadow-sm:0 12px 30px -18px rgba(53,38,92,.3);
+  --bg:#f6f3ee;--bg-2:#ece6dc;--surface:#ffffff;--ink:#1e2a32;--ink-2:#0c2a43;
+  --muted:#586a72;--muted-2:#9aa7ae;--line:rgba(12,42,67,.09);--line-2:rgba(12,42,67,.15);
+  --indigo:#157f6e;--violet:#1a8f7c;--coral:#b98a2e;--gold:#b98a2e;--green:#157f6e;--sky:#2f9bff;
+  --grad:linear-gradient(118deg,#157f6e,#1a8f7c 48%,#b98a2e);--grad-2:linear-gradient(118deg,#157f6e,#1a8f7c);
+  --shadow:0 24px 60px -32px rgba(12,42,67,.4);--shadow-sm:0 12px 30px -18px rgba(12,42,67,.3);
 }
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Manrope',system-ui,sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.55}
-h1,h2,h3,h4{letter-spacing:-.02em;line-height:1.15;font-weight:800}
-.serif{font-family:'Lora',Georgia,serif;font-style:italic;font-weight:600}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.55}
+h1,h2,h3,h4{font-family:'Spectral',Georgia,serif;letter-spacing:-.02em;line-height:1.15;font-weight:800}
+.serif{font-family:'Spectral',Georgia,serif;font-style:italic;font-weight:600}
 a{color:inherit;text-decoration:none}svg{display:block}
 .grad-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:700;font-size:14px;padding:11px 18px;border-radius:11px;cursor:pointer;border:1px solid transparent;font-family:inherit;transition:.2s}
 .btn svg{width:16px;height:16px}
-.btn-primary{background:var(--grad);color:#fff;box-shadow:0 12px 28px -12px rgba(124,92,255,.7)}
+.btn-primary{background:var(--grad);color:#fff;box-shadow:0 12px 28px -12px rgba(21,127,110,.7)}
 .btn-primary:hover{transform:translateY(-2px)}
 .btn-ghost{background:var(--surface);border-color:var(--line-2);color:var(--ink)}
 .btn-ghost:hover{background:var(--bg)}
@@ -32,13 +32,13 @@ a{color:inherit;text-decoration:none}svg{display:block}
 
 .top{position:sticky;top:0;z-index:20;background:rgba(246,243,238,.9);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);padding:13px 26px;display:flex;align-items:center;gap:14px}
 .logo{display:flex;align-items:center;gap:11px;font-weight:800;font-size:18px}
-.logo-mark{width:32px;height:32px;border-radius:10px;background:var(--grad);display:grid;place-items:center;box-shadow:0 8px 18px -6px rgba(124,92,255,.6)}
+.logo-mark{width:32px;height:32px;border-radius:10px;background:var(--grad);display:grid;place-items:center;box-shadow:0 8px 18px -6px rgba(21,127,110,.6)}
 .logo-mark svg{width:19px;height:19px}
 .role{font-size:12px;font-weight:700;color:var(--muted);border-left:1px solid var(--line-2);padding-left:14px}
 .top-right{margin-left:auto;display:flex;align-items:center;gap:12px}
 .switch{font-size:13.5px;font-weight:700;color:var(--indigo);display:flex;align-items:center;gap:7px}
 .switch svg{width:16px;height:16px}
-.ava{width:38px;height:38px;border-radius:11px;background:linear-gradient(135deg,#7c5cff,#4f46e5);display:grid;place-items:center;color:#fff;font-weight:800}
+.ava{width:38px;height:38px;border-radius:11px;background:linear-gradient(135deg,#1a8f7c,#157f6e);display:grid;place-items:center;color:#fff;font-weight:800}
 
 .wrap{max-width:1120px;margin:0 auto;padding:26px 26px 70px}
 .greet{margin-bottom:20px}
@@ -69,7 +69,7 @@ a{color:inherit;text-decoration:none}svg{display:block}
 .grade-card .task-top .ic{width:44px;height:44px;border-radius:12px;background:var(--bg);display:grid;place-items:center;font-size:20px}
 .grade-card .task-top b{font-size:16px;display:block}
 .grade-card .task-top span{font-size:13px;color:var(--muted)}
-.ai-pre{display:flex;gap:11px;align-items:flex-start;background:linear-gradient(120deg,rgba(79,70,229,.08),rgba(255,106,82,.07));border:1px solid var(--line);border-radius:13px;padding:13px;margin-bottom:18px;font-size:13.5px}
+.ai-pre{display:flex;gap:11px;align-items:flex-start;background:linear-gradient(120deg,rgba(21,127,110,.08),rgba(185,138,46,.07));border:1px solid var(--line);border-radius:13px;padding:13px;margin-bottom:18px;font-size:13.5px}
 .ai-pre .aii{width:26px;height:26px;border-radius:8px;background:var(--grad-2);display:grid;place-items:center;flex-shrink:0}
 .ai-pre .aii svg{width:14px;height:14px;color:#fff}
 .ai-pre b{color:var(--indigo)}
@@ -82,7 +82,7 @@ a{color:inherit;text-decoration:none}svg{display:block}
 .rubric-g .rg .scores button:hover{border-color:var(--violet)}
 .rubric-g .rg .scores button.on{background:var(--grad);color:#fff;border-color:transparent}
 .fb-area{width:100%;border:1.5px solid var(--line);border-radius:12px;padding:13px;font-family:inherit;font-size:14px;background:var(--bg);resize:vertical;min-height:80px}
-.fb-area:focus{outline:2px solid rgba(124,92,255,.35)}
+.fb-area:focus{outline:2px solid rgba(21,127,110,.35)}
 .grade-actions{display:flex;gap:10px;margin-top:14px;align-items:center}
 .sent{display:none;text-align:center;padding:26px}
 .sent.show{display:block}
@@ -98,8 +98,8 @@ a{color:inherit;text-decoration:none}svg{display:block}
 .les .lw{text-align:center;width:50px;flex-shrink:0}
 .les .lw b{font-size:15px;font-weight:800;display:block}.les .lw span{font-size:11px;color:var(--muted)}
 .les .lb{flex:1}.les .lb b{font-size:14px}.les .lb span{font-size:12px;color:var(--muted);display:block}
-.ai-assist{background:linear-gradient(125deg,#2a2350,#4f46e5 65%,#7c5cff);color:#fff;border:none;position:relative;overflow:hidden}
-.ai-assist .ao{position:absolute;width:180px;height:180px;border-radius:50%;background:rgba(255,106,82,.4);filter:blur(55px);top:-60px;right:-30px}
+.ai-assist{background:linear-gradient(125deg,#2a2350,#157f6e 65%,#1a8f7c);color:#fff;border:none;position:relative;overflow:hidden}
+.ai-assist .ao{position:absolute;width:180px;height:180px;border-radius:50%;background:rgba(185,138,46,.4);filter:blur(55px);top:-60px;right:-30px}
 .ai-assist .in{position:relative;z-index:1}
 .ai-assist h4{font-size:15px;display:flex;align-items:center;gap:9px;margin-bottom:12px}
 .ai-assist h4 .ai{width:26px;height:26px;border-radius:8px;background:rgba(255,255,255,.2);display:grid;place-items:center}
@@ -117,8 +117,8 @@ a{color:inherit;text-decoration:none}svg{display:block}
 .mini-track{height:7px;border-radius:100px;background:var(--bg-2);overflow:hidden}
 .mini-track i{display:block;height:100%;background:var(--grad)}
 .flag{font-size:11px;font-weight:700;padding:4px 9px;border-radius:100px;white-space:nowrap}
-.f-ok{color:var(--green);background:rgba(18,178,119,.12)}
-.f-warn{color:var(--coral);background:rgba(255,106,82,.12)}
+.f-ok{color:var(--green);background:rgba(21,127,110,.12)}
+.f-warn{color:var(--coral);background:rgba(185,138,46,.12)}
 .f-info{color:var(--sky);background:rgba(47,155,255,.12)}
 @media(max-width:920px){.cols{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr}.st-row{grid-template-columns:2fr 1fr auto;gap:8px}.st-hide{display:none}}
 </style>
@@ -148,9 +148,9 @@ a{color:inherit;text-decoration:none}svg{display:block}
       <div class="card" style="margin-bottom:20px">
         <div class="sec-t">⚠️ Требует внимания <span class="cnt" id="qCnt">3</span></div>
         <div id="queue">
-          <div class="q-item"><span class="qa" style="background:linear-gradient(135deg,#ff6a52,#f2a33c)">Т</span><div class="qx"><b>Тимур Ахметов · 7 класс</b><div class="fl warn"><svg viewBox="0 0 24 24" width="13" fill="none"><path d="M12 8v5m0 3h.01M5 21h14a2 2 0 0 0 1.8-2.9l-7-13a2 2 0 0 0-3.6 0l-7 13A2 2 0 0 0 5 21Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>ИИ: балл по алгебре упал на 12 — застрял на уравнениях</div></div><div class="qbtns"><button class="btn btn-primary btn-sm" onclick="dismiss(this)">Помочь</button></div></div>
-          <div class="q-item"><span class="qa" style="background:linear-gradient(135deg,#2f9bff,#12b277)">С</span><div class="qx"><b>София Морозова · 6 класс</b><div class="fl info"><svg viewBox="0 0 24 24" width="13" fill="none"><path d="M12 8v4l3 2M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" stroke="currentColor" stroke-width="1.8"/></svg>Пропустила 2 дня — стрик под угрозой, стоит написать</div></div><div class="qbtns"><button class="btn btn-ghost btn-sm" onclick="dismiss(this)">Написать</button></div></div>
-          <div class="q-item"><span class="qa" style="background:linear-gradient(135deg,#f2a33c,#ff6a52)">К</span><div class="qx"><b>Кирилл Дубов · 6 класс</b><div class="fl ok"><svg viewBox="0 0 24 24" width="13" fill="none"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>ИИ: рвётся вперёд — предложите усложнённый трек</div></div><div class="qbtns"><button class="btn btn-ghost btn-sm" onclick="dismiss(this)">Ускорить</button></div></div>
+          <div class="q-item"><span class="qa" style="background:linear-gradient(135deg,#b98a2e,#b98a2e)">Т</span><div class="qx"><b>Тимур Ахметов · 7 класс</b><div class="fl warn"><svg viewBox="0 0 24 24" width="13" fill="none"><path d="M12 8v5m0 3h.01M5 21h14a2 2 0 0 0 1.8-2.9l-7-13a2 2 0 0 0-3.6 0l-7 13A2 2 0 0 0 5 21Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>ИИ: балл по алгебре упал на 12 — застрял на уравнениях</div></div><div class="qbtns"><button class="btn btn-primary btn-sm" onclick="dismiss(this)">Помочь</button></div></div>
+          <div class="q-item"><span class="qa" style="background:linear-gradient(135deg,#2f9bff,#157f6e)">С</span><div class="qx"><b>София Морозова · 6 класс</b><div class="fl info"><svg viewBox="0 0 24 24" width="13" fill="none"><path d="M12 8v4l3 2M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" stroke="currentColor" stroke-width="1.8"/></svg>Пропустила 2 дня — стрик под угрозой, стоит написать</div></div><div class="qbtns"><button class="btn btn-ghost btn-sm" onclick="dismiss(this)">Написать</button></div></div>
+          <div class="q-item"><span class="qa" style="background:linear-gradient(135deg,#b98a2e,#b98a2e)">К</span><div class="qx"><b>Кирилл Дубов · 6 класс</b><div class="fl ok"><svg viewBox="0 0 24 24" width="13" fill="none"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>ИИ: рвётся вперёд — предложите усложнённый трек</div></div><div class="qbtns"><button class="btn btn-ghost btn-sm" onclick="dismiss(this)">Ускорить</button></div></div>
         </div>
         <div id="qEmpty" style="display:none;text-align:center;color:var(--muted);font-size:14px;padding:14px">Всё разобрано — отличная работа! 🎉</div>
       </div>
@@ -197,11 +197,11 @@ a{color:inherit;text-decoration:none}svg{display:block}
     <div class="sec-t">👥 Мои ученики</div>
     <div class="students">
       <div class="st-row head"><span>Ученик</span><span class="st-hide">Класс</span><span class="st-hide">Средний балл</span><span class="st-hide">Стрик</span><span>Статус</span><span></span></div>
-      <div class="st-row"><span class="who"><span class="st-av" style="background:linear-gradient(135deg,#7c5cff,#4f46e5)">М</span>Мира Соколова</span><span class="st-hide">6</span><span class="st-hide"><div class="mini-track"><i style="width:82%"></i></div></span><span class="st-hide">🔥 24</span><span><span class="flag f-ok">В графике</span></span><button class="btn btn-ghost btn-sm">Открыть</button></div>
-      <div class="st-row"><span class="who"><span class="st-av" style="background:linear-gradient(135deg,#ff6a52,#f2a33c)">Т</span>Тимур Ахметов</span><span class="st-hide">7</span><span class="st-hide"><div class="mini-track"><i style="width:61%"></i></div></span><span class="st-hide">🔥 5</span><span><span class="flag f-warn">Нужна помощь</span></span><button class="btn btn-ghost btn-sm">Открыть</button></div>
-      <div class="st-row"><span class="who"><span class="st-av" style="background:linear-gradient(135deg,#2f9bff,#12b277)">С</span>София Морозова</span><span class="st-hide">6</span><span class="st-hide"><div class="mini-track"><i style="width:78%"></i></div></span><span class="st-hide">🔥 0</span><span><span class="flag f-info">Пропуск 2 дня</span></span><button class="btn btn-ghost btn-sm">Открыть</button></div>
-      <div class="st-row"><span class="who"><span class="st-av" style="background:linear-gradient(135deg,#f2a33c,#ff6a52)">К</span>Кирилл Дубов</span><span class="st-hide">6</span><span class="st-hide"><div class="mini-track"><i style="width:91%"></i></div></span><span class="st-hide">🔥 31</span><span><span class="flag f-ok">Опережает</span></span><button class="btn btn-ghost btn-sm">Открыть</button></div>
-      <div class="st-row"><span class="who"><span class="st-av" style="background:linear-gradient(135deg,#12b277,#2f9bff)">Л</span>Лена Павлова</span><span class="st-hide">6</span><span class="st-hide"><div class="mini-track"><i style="width:73%"></i></div></span><span class="st-hide">🔥 12</span><span><span class="flag f-ok">В графике</span></span><button class="btn btn-ghost btn-sm">Открыть</button></div>
+      <div class="st-row"><span class="who"><span class="st-av" style="background:linear-gradient(135deg,#1a8f7c,#157f6e)">М</span>Мира Соколова</span><span class="st-hide">6</span><span class="st-hide"><div class="mini-track"><i style="width:82%"></i></div></span><span class="st-hide">🔥 24</span><span><span class="flag f-ok">В графике</span></span><button class="btn btn-ghost btn-sm">Открыть</button></div>
+      <div class="st-row"><span class="who"><span class="st-av" style="background:linear-gradient(135deg,#b98a2e,#b98a2e)">Т</span>Тимур Ахметов</span><span class="st-hide">7</span><span class="st-hide"><div class="mini-track"><i style="width:61%"></i></div></span><span class="st-hide">🔥 5</span><span><span class="flag f-warn">Нужна помощь</span></span><button class="btn btn-ghost btn-sm">Открыть</button></div>
+      <div class="st-row"><span class="who"><span class="st-av" style="background:linear-gradient(135deg,#2f9bff,#157f6e)">С</span>София Морозова</span><span class="st-hide">6</span><span class="st-hide"><div class="mini-track"><i style="width:78%"></i></div></span><span class="st-hide">🔥 0</span><span><span class="flag f-info">Пропуск 2 дня</span></span><button class="btn btn-ghost btn-sm">Открыть</button></div>
+      <div class="st-row"><span class="who"><span class="st-av" style="background:linear-gradient(135deg,#b98a2e,#b98a2e)">К</span>Кирилл Дубов</span><span class="st-hide">6</span><span class="st-hide"><div class="mini-track"><i style="width:91%"></i></div></span><span class="st-hide">🔥 31</span><span><span class="flag f-ok">Опережает</span></span><button class="btn btn-ghost btn-sm">Открыть</button></div>
+      <div class="st-row"><span class="who"><span class="st-av" style="background:linear-gradient(135deg,#157f6e,#2f9bff)">Л</span>Лена Павлова</span><span class="st-hide">6</span><span class="st-hide"><div class="mini-track"><i style="width:73%"></i></div></span><span class="st-hide">🔥 12</span><span><span class="flag f-ok">В графике</span></span><button class="btn btn-ghost btn-sm">Открыть</button></div>
     </div>
     <p style="text-align:center;font-size:13px;color:var(--muted);margin-top:14px">Показаны 5 из 18 · <a href="#" style="color:var(--indigo);font-weight:700">все ученики →</a></p>
   </div>

@@ -6,21 +6,21 @@
 <title>Люксента — личный кабинет ученика</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Lora:ital,wght@1,500;1,600&display=swap" media="print" onload="this.media='all'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Lora:ital,wght@1,500;1,600&display=swap"></noscript>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Spectral:ital,wght@1,500;1,600&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Spectral:ital,wght@1,500;1,600&display=swap"></noscript>
 <style>
 :root{
-  --bg:#f6f3ee;--bg-2:#ece6dc;--surface:#ffffff;--ink:#181521;--ink-2:#2f2b3b;
-  --muted:#655f72;--muted-2:#9a93a6;--line:rgba(24,21,33,.09);--line-2:rgba(24,21,33,.14);
-  --indigo:#4f46e5;--violet:#7c5cff;--coral:#ff6a52;--gold:#f2a33c;--green:#12b277;--sky:#2f9bff;
-  --grad:linear-gradient(118deg,#4f46e5,#7c5cff 48%,#ff6a52);
-  --grad-2:linear-gradient(118deg,#5b52ff,#9a6bff);
-  --radius:18px;--shadow:0 24px 60px -32px rgba(53,38,92,.4);--shadow-sm:0 12px 30px -18px rgba(53,38,92,.32);
+  --bg:#f6f3ee;--bg-2:#ece6dc;--surface:#ffffff;--ink:#1e2a32;--ink-2:#0c2a43;
+  --muted:#586a72;--muted-2:#9aa7ae;--line:rgba(12,42,67,.09);--line-2:rgba(12,42,67,.14);
+  --indigo:#157f6e;--violet:#1a8f7c;--coral:#b98a2e;--gold:#b98a2e;--green:#157f6e;--sky:#2f9bff;
+  --grad:linear-gradient(118deg,#157f6e,#1a8f7c 48%,#b98a2e);
+  --grad-2:linear-gradient(118deg,#157f6e,#1a8f7c);
+  --radius:18px;--shadow:0 24px 60px -32px rgba(12,42,67,.4);--shadow-sm:0 12px 30px -18px rgba(12,42,67,.32);
 }
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Manrope',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.55}
-h1,h2,h3,h4{letter-spacing:-.02em;line-height:1.15;font-weight:800}
-.serif{font-family:'Lora',Georgia,serif;font-style:italic;font-weight:600}
+body{font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.55}
+h1,h2,h3,h4{font-family:'Spectral',Georgia,serif;letter-spacing:-.02em;line-height:1.15;font-weight:800}
+.serif{font-family:'Spectral',Georgia,serif;font-style:italic;font-weight:600}
 a{color:inherit;text-decoration:none}
 svg{display:block}
 .grad-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
@@ -29,7 +29,7 @@ svg{display:block}
 .app{display:grid;grid-template-columns:264px 1fr;min-height:100vh}
 .sidebar{background:var(--surface);border-right:1px solid var(--line);display:flex;flex-direction:column;position:sticky;top:0;height:100vh;padding:22px 16px;z-index:40}
 .side-logo{display:flex;align-items:center;gap:11px;font-weight:800;font-size:19px;padding:4px 8px 2px}
-.logo-mark{width:34px;height:34px;border-radius:10px;background:var(--grad);display:grid;place-items:center;box-shadow:0 8px 18px -6px rgba(124,92,255,.6);flex-shrink:0}
+.logo-mark{width:34px;height:34px;border-radius:10px;background:var(--grad);display:grid;place-items:center;box-shadow:0 8px 18px -6px rgba(21,127,110,.6);flex-shrink:0}
 .logo-mark svg{width:20px;height:20px}
 .side-tag{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted-2);padding:2px 8px 16px 47px}
 .side-nav{display:flex;flex-direction:column;gap:3px;flex:1}
@@ -37,12 +37,12 @@ svg{display:block}
 .nav-i{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:12px;color:var(--muted);font-weight:600;font-size:14.5px;cursor:pointer;transition:.18s;border:1px solid transparent}
 .nav-i svg{width:19px;height:19px;flex-shrink:0}
 .nav-i:hover{background:var(--bg);color:var(--ink)}
-.nav-i.active{background:linear-gradient(120deg,rgba(79,70,229,.1),rgba(255,106,82,.08));color:var(--indigo);border-color:var(--line)}
+.nav-i.active{background:linear-gradient(120deg,rgba(21,127,110,.1),rgba(185,138,46,.08));color:var(--indigo);border-color:var(--line)}
 .nav-i .badge{margin-left:auto;font-size:10px;font-weight:800;color:#fff;background:var(--coral);padding:2px 7px;border-radius:100px}
 .side-foot{border-top:1px solid var(--line);padding-top:14px;margin-top:8px}
 .side-user{display:flex;align-items:center;gap:11px;padding:8px 10px;border-radius:12px;transition:.18s;cursor:pointer}
 .side-user:hover{background:var(--bg)}
-.ava{width:38px;height:38px;border-radius:11px;background:linear-gradient(135deg,#7c5cff,#4f46e5);display:grid;place-items:center;color:#fff;font-weight:800;flex-shrink:0}
+.ava{width:38px;height:38px;border-radius:11px;background:linear-gradient(135deg,#1a8f7c,#157f6e);display:grid;place-items:center;color:#fff;font-weight:800;flex-shrink:0}
 .side-user .nm{font-weight:700;font-size:14px}
 .side-user .cl{font-size:12px;color:var(--muted)}
 .side-link{display:block;text-align:center;font-size:13px;color:var(--muted);padding:10px;margin-top:6px;border:1px solid var(--line);border-radius:11px;transition:.18s}
@@ -81,8 +81,8 @@ svg{display:block}
 
 /* CONTINUE + LIVE */
 .feat-row{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-.continue{position:relative;overflow:hidden;background:linear-gradient(125deg,#2a2350,#4f46e5 60%,#7c5cff);color:#fff;border:none}
-.continue .co-orb{position:absolute;width:220px;height:220px;border-radius:50%;background:rgba(255,106,82,.4);filter:blur(60px);top:-90px;right:-50px}
+.continue{position:relative;overflow:hidden;background:linear-gradient(125deg,#2a2350,#157f6e 60%,#1a8f7c);color:#fff;border:none}
+.continue .co-orb{position:absolute;width:220px;height:220px;border-radius:50%;background:rgba(185,138,46,.4);filter:blur(60px);top:-90px;right:-50px}
 .continue .in{position:relative;z-index:1}
 .continue .tag{font-size:12px;font-weight:700;opacity:.85;text-transform:uppercase;letter-spacing:.06em}
 .continue h3{font-size:22px;margin:8px 0 4px}
@@ -93,13 +93,13 @@ svg{display:block}
 .btn svg{width:17px;height:17px}
 .btn-white{background:#fff;color:var(--indigo)}
 .btn-white:hover{transform:translateY(-2px);box-shadow:0 14px 30px -12px rgba(0,0,0,.4)}
-.btn-primary{background:var(--grad);color:#fff;box-shadow:0 12px 28px -12px rgba(124,92,255,.7)}
+.btn-primary{background:var(--grad);color:#fff;box-shadow:0 12px 28px -12px rgba(21,127,110,.7)}
 .btn-primary:hover{transform:translateY(-2px)}
 .btn-ghost{background:var(--surface);border-color:var(--line-2);color:var(--ink)}
 .btn-ghost:hover{background:var(--bg)}
 .live .tag{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--coral);display:flex;align-items:center;gap:7px}
 .live .tag .pulse{width:7px;height:7px;border-radius:50%;background:var(--coral);animation:pulse 1.5s infinite}
-@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(255,106,82,.5)}50%{box-shadow:0 0 0 6px rgba(255,106,82,0)}}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(185,138,46,.5)}50%{box-shadow:0 0 0 6px rgba(185,138,46,0)}}
 .live h3{font-size:19px;margin:9px 0 3px}
 .live .meta{font-size:13.5px;color:var(--muted);margin-bottom:14px}
 .countdown{display:flex;gap:8px;margin-bottom:16px}
@@ -115,13 +115,13 @@ svg{display:block}
 .plan-item .tx .t{font-weight:700;font-size:15px}
 .plan-item .tx .s{font-size:12.5px;color:var(--muted)}
 .tag2{font-size:11px;font-weight:700;padding:4px 10px;border-radius:100px;white-space:nowrap}
-.t-lesson{color:var(--indigo);background:rgba(79,70,229,.1)}
-.t-project{color:var(--coral);background:rgba(255,106,82,.12)}
+.t-lesson{color:var(--indigo);background:rgba(21,127,110,.1)}
+.t-project{color:var(--coral);background:rgba(185,138,46,.12)}
 .t-live{color:var(--sky);background:rgba(47,155,255,.12)}
 .t-review{color:var(--gold);background:rgba(242,163,60,.14)}
-.t-done{color:var(--green);background:rgba(18,178,119,.12)}
+.t-done{color:var(--green);background:rgba(21,127,110,.12)}
 .status-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
-.sd-now{background:var(--coral);box-shadow:0 0 0 4px rgba(255,106,82,.18)}
+.sd-now{background:var(--coral);box-shadow:0 0 0 4px rgba(185,138,46,.18)}
 .sd-next{background:var(--muted-2)}
 .sd-done{background:var(--green)}
 
@@ -141,7 +141,7 @@ svg{display:block}
 .mini-days{display:flex;gap:5px;margin-top:12px}
 .mini-days .d{flex:1;height:26px;border-radius:7px;background:var(--bg-2);display:grid;place-items:center;font-size:10px;font-weight:700;color:var(--muted-2)}
 .mini-days .d.on{background:var(--grad);color:#fff}
-.nudge{background:linear-gradient(125deg,rgba(79,70,229,.09),rgba(255,106,82,.08));border-color:var(--line)}
+.nudge{background:linear-gradient(125deg,rgba(21,127,110,.09),rgba(185,138,46,.08));border-color:var(--line)}
 .nudge .top{display:flex;align-items:center;gap:9px;font-weight:800;font-size:14px;margin-bottom:8px}
 .nudge .top .ai{width:26px;height:26px;border-radius:8px;background:var(--grad-2);display:grid;place-items:center}
 .nudge .top .ai svg{width:15px;height:15px;color:#fff}
@@ -164,7 +164,7 @@ svg{display:block}
 .n-done .nic{background:var(--green)}.n-now .nic{background:var(--grad)}.n-gap .nic{background:var(--coral)}.n-lock .nic{background:var(--muted-2)}
 .node .nt{flex:1}.node .nt b{font-size:15px}.node .nt span{font-size:12.5px;color:var(--muted);display:block}
 .node.n-lock{opacity:.6}
-.gap-fix{font-size:12px;color:var(--coral);font-weight:700;background:rgba(255,106,82,.1);padding:5px 11px;border-radius:100px}
+.gap-fix{font-size:12px;color:var(--coral);font-weight:700;background:rgba(185,138,46,.1);padding:5px 11px;border-radius:100px}
 
 /* LESSONS */
 .tabs{display:flex;gap:8px;margin-bottom:18px}
@@ -179,7 +179,7 @@ svg{display:block}
 .lesson-c .body h4{font-size:16px}
 .lesson-c .body .meta{font-size:13px;color:var(--muted)}
 .lesson-c .body .who{display:flex;align-items:center;gap:7px;margin-top:8px;font-size:13px}
-.mini-ava{width:24px;height:24px;border-radius:7px;background:linear-gradient(135deg,#12b277,#2f9bff);display:grid;place-items:center;color:#fff;font-size:11px;font-weight:800}
+.mini-ava{width:24px;height:24px;border-radius:7px;background:linear-gradient(135deg,#157f6e,#2f9bff);display:grid;place-items:center;color:#fff;font-size:11px;font-weight:800}
 .seats{font-size:12px;color:var(--muted);display:flex;align-items:center;gap:6px}
 .dots{display:flex;gap:3px}.dots i{width:7px;height:7px;border-radius:50%;background:var(--green)}.dots i.free{background:var(--bg-2)}
 
@@ -194,10 +194,10 @@ svg{display:block}
 .task-head .tt b{font-size:15px}
 .task-head .tt span{font-size:12.5px;color:var(--muted);display:block}
 .st{font-size:11.5px;font-weight:800;padding:5px 11px;border-radius:100px;white-space:nowrap}
-.st-auto{color:var(--green);background:rgba(18,178,119,.12)}
+.st-auto{color:var(--green);background:rgba(21,127,110,.12)}
 .st-check{color:var(--gold);background:rgba(242,163,60,.14)}
-.st-redo{color:var(--coral);background:rgba(255,106,82,.12)}
-.st-done{color:var(--indigo);background:rgba(79,70,229,.1)}
+.st-redo{color:var(--coral);background:rgba(185,138,46,.12)}
+.st-done{color:var(--indigo);background:rgba(21,127,110,.1)}
 .task-body{display:none;padding:0 18px 18px;border-top:1px solid var(--line)}
 .task.open .task-body{display:block}
 .task-body .fb{background:var(--bg);border-radius:12px;padding:14px;margin-top:14px;font-size:13.5px}
@@ -205,7 +205,7 @@ svg{display:block}
 .rubric{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
 .rub{font-size:12px;padding:6px 11px;border-radius:100px;border:1px solid var(--line);display:flex;align-items:center;gap:6px}
 .rub svg{width:13px;height:13px}
-.rub.ok{color:var(--green);border-color:rgba(18,178,119,.3)}
+.rub.ok{color:var(--green);border-color:rgba(21,127,110,.3)}
 .rub.no{color:var(--muted-2)}
 .score-big{font-size:15px;font-weight:800;color:var(--green)}
 
@@ -228,7 +228,7 @@ svg{display:block}
 .qp:hover{background:var(--bg);border-color:var(--violet)}
 .chat-input{display:flex;gap:10px;padding:14px 16px;border-top:1px solid var(--line)}
 .chat-input input{flex:1;border:1px solid var(--line-2);border-radius:12px;padding:12px 15px;font-family:inherit;font-size:14.5px;background:var(--bg)}
-.chat-input input:focus{outline:2px solid rgba(124,92,255,.4)}
+.chat-input input:focus{outline:2px solid rgba(21,127,110,.4)}
 .chat-input button{border:none;background:var(--grad);color:#fff;width:46px;border-radius:12px;cursor:pointer;display:grid;place-items:center}
 .chat-input button svg{width:19px;height:19px}
 .tutor-side .card{margin-bottom:16px}
@@ -249,22 +249,22 @@ svg{display:block}
 .track i{display:block;height:100%;border-radius:100px;background:var(--grad)}
 .heat{display:grid;grid-template-columns:repeat(20,1fr);gap:4px;margin-top:8px}
 .heat .c{aspect-ratio:1;border-radius:4px;background:var(--bg-2)}
-.heat .c.l1{background:rgba(79,70,229,.3)}.heat .c.l2{background:rgba(79,70,229,.55)}.heat .c.l3{background:rgba(79,70,229,.8)}.heat .c.l4{background:var(--indigo)}
+.heat .c.l1{background:rgba(21,127,110,.3)}.heat .c.l2{background:rgba(21,127,110,.55)}.heat .c.l3{background:rgba(21,127,110,.8)}.heat .c.l4{background:var(--indigo)}
 .legend{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--muted);justify-content:flex-end;margin-top:10px}
 .legend .c{width:12px;height:12px;border-radius:3px}
-.parent-note{display:flex;align-items:center;gap:12px;background:linear-gradient(120deg,rgba(47,155,255,.08),rgba(18,178,119,.07));border-color:var(--line)}
+.parent-note{display:flex;align-items:center;gap:12px;background:linear-gradient(120deg,rgba(47,155,255,.08),rgba(21,127,110,.07));border-color:var(--line)}
 .parent-note svg{width:26px;height:26px;color:var(--sky);flex-shrink:0}
 
 /* ACHIEVEMENTS */
-.level-card{background:linear-gradient(125deg,#2a2350,#4f46e5 60%,#7c5cff);color:#fff;border:none;position:relative;overflow:hidden}
-.level-card .lo{position:absolute;width:200px;height:200px;border-radius:50%;background:rgba(255,106,82,.4);filter:blur(60px);top:-70px;right:-40px}
+.level-card{background:linear-gradient(125deg,#2a2350,#157f6e 60%,#1a8f7c);color:#fff;border:none;position:relative;overflow:hidden}
+.level-card .lo{position:absolute;width:200px;height:200px;border-radius:50%;background:rgba(185,138,46,.4);filter:blur(60px);top:-70px;right:-40px}
 .level-card .in{position:relative;z-index:1;display:flex;align-items:center;gap:20px}
 .lvl-badge{width:74px;height:74px;border-radius:20px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);display:grid;place-items:center;font-size:30px;font-weight:800;flex-shrink:0}
 .level-card h3{font-size:22px}
 .level-card p{opacity:.85;font-size:13.5px;margin:2px 0 12px}
 .level-card .pbar{background:rgba(255,255,255,.25)}
 .league-row{display:flex;align-items:center;gap:13px;padding:11px 14px;border-radius:12px;margin-bottom:5px}
-.league-row.me{background:linear-gradient(120deg,rgba(79,70,229,.1),rgba(255,106,82,.08));border:1px solid var(--line)}
+.league-row.me{background:linear-gradient(120deg,rgba(21,127,110,.1),rgba(185,138,46,.08));border:1px solid var(--line)}
 .league-row .rk{width:26px;font-weight:800;text-align:center;color:var(--muted)}
 .league-row.top3 .rk{color:var(--gold)}
 .league-row .nm{flex:1;font-weight:700;font-size:14px}
@@ -368,17 +368,17 @@ svg{display:block}
       <div class="dash-cols">
         <div>
           <div class="sec-t">План на сегодня</div>
-          <div class="plan-item"><span class="status-dot sd-done"></span><div class="ic" style="background:rgba(18,178,119,.13)">📖</div><div class="tx"><div class="t">Литература · эссе по «Дубровскому»</div><div class="s">Сдано · проверено ИИ и наставником</div></div><span class="tag2 t-done">готово</span></div>
-          <div class="plan-item"><span class="status-dot sd-now"></span><div class="ic" style="background:rgba(79,70,229,.12)">📐</div><div class="tx"><div class="t">Математика · сложение дробей</div><div class="s">Сложность повышена — тема даётся легко</div></div><span class="tag2 t-lesson">урок</span></div>
+          <div class="plan-item"><span class="status-dot sd-done"></span><div class="ic" style="background:rgba(21,127,110,.13)">📖</div><div class="tx"><div class="t">Литература · эссе по «Дубровскому»</div><div class="s">Сдано · проверено ИИ и наставником</div></div><span class="tag2 t-done">готово</span></div>
+          <div class="plan-item"><span class="status-dot sd-now"></span><div class="ic" style="background:rgba(21,127,110,.12)">📐</div><div class="tx"><div class="t">Математика · сложение дробей</div><div class="s">Сложность повышена — тема даётся легко</div></div><span class="tag2 t-lesson">урок</span></div>
           <div class="plan-item"><span class="status-dot sd-next"></span><div class="ic" style="background:rgba(242,163,60,.14)">🔁</div><div class="tx"><div class="t">Повторение · проценты и дроби</div><div class="s">6 карточек по кривой забывания</div></div><span class="tag2 t-review">повтор</span></div>
-          <div class="plan-item"><span class="status-dot sd-next"></span><div class="ic" style="background:rgba(255,106,82,.13)">🚀</div><div class="tx"><div class="t">Проект «Космический бюджет»</div><div class="s">Математика + твоя тема: космос</div></div><span class="tag2 t-project">проект</span></div>
+          <div class="plan-item"><span class="status-dot sd-next"></span><div class="ic" style="background:rgba(185,138,46,.13)">🚀</div><div class="tx"><div class="t">Проект «Космический бюджет»</div><div class="s">Математика + твоя тема: космос</div></div><span class="tag2 t-project">проект</span></div>
           <div class="plan-item"><span class="status-dot sd-next"></span><div class="ic" style="background:rgba(47,155,255,.12)">🎭</div><div class="tx"><div class="t">Литература · живая мини-группа</div><div class="s">18:00 · 6 учеников · с наставником</div></div><span class="tag2 t-live">live</span></div>
         </div>
         <div>
           <div class="sec-t">Сегодня</div>
           <div class="card widget">
             <h4>🎯 Дневная цель</h4>
-            <div class="ring" style="background:conic-gradient(#4f46e5 288deg,var(--bg-2) 0)"><div class="rv"><b>80%</b><span>40 / 50 XP</span></div></div>
+            <div class="ring" style="background:conic-gradient(#157f6e 288deg,var(--bg-2) 0)"><div class="rv"><b>80%</b><span>40 / 50 XP</span></div></div>
             <div class="goal-note">Ещё <b>10 XP</b> — и цель закрыта 🎉</div>
           </div>
           <div class="card widget">
@@ -402,10 +402,10 @@ svg{display:block}
       </div>
       <div class="sec-t">Мастерство по предметам</div>
       <div class="subj-grid">
-        <div class="card subj"><div class="ring" style="background:conic-gradient(#12b277 295deg,var(--bg-2) 0)"><div class="rv"><b>82</b><span>из 100</span></div></div><div class="nm">Математика</div><div class="lv lv-proficient">Уверенно</div></div>
-        <div class="card subj"><div class="ring" style="background:conic-gradient(#4f46e5 266deg,var(--bg-2) 0)"><div class="rv"><b>74</b><span>из 100</span></div></div><div class="nm">Русский язык</div><div class="lv lv-familiar">Знаком</div></div>
-        <div class="card subj"><div class="ring" style="background:conic-gradient(#12b277 342deg,var(--bg-2) 0)"><div class="rv"><b>95</b><span>из 100</span></div></div><div class="nm">Литература</div><div class="lv lv-mastered">Освоено</div></div>
-        <div class="card subj"><div class="ring" style="background:conic-gradient(#4f46e5 234deg,var(--bg-2) 0)"><div class="rv"><b>65</b><span>из 100</span></div></div><div class="nm">Английский</div><div class="lv lv-familiar">Знаком</div></div>
+        <div class="card subj"><div class="ring" style="background:conic-gradient(#157f6e 295deg,var(--bg-2) 0)"><div class="rv"><b>82</b><span>из 100</span></div></div><div class="nm">Математика</div><div class="lv lv-proficient">Уверенно</div></div>
+        <div class="card subj"><div class="ring" style="background:conic-gradient(#157f6e 266deg,var(--bg-2) 0)"><div class="rv"><b>74</b><span>из 100</span></div></div><div class="nm">Русский язык</div><div class="lv lv-familiar">Знаком</div></div>
+        <div class="card subj"><div class="ring" style="background:conic-gradient(#157f6e 342deg,var(--bg-2) 0)"><div class="rv"><b>95</b><span>из 100</span></div></div><div class="nm">Литература</div><div class="lv lv-mastered">Освоено</div></div>
+        <div class="card subj"><div class="ring" style="background:conic-gradient(#157f6e 234deg,var(--bg-2) 0)"><div class="rv"><b>65</b><span>из 100</span></div></div><div class="nm">Английский</div><div class="lv lv-familiar">Знаком</div></div>
       </div>
       <div class="sec-t">Карта знаний · Математика → Дроби</div>
       <div class="card" style="padding:18px">
@@ -524,10 +524,10 @@ svg{display:block}
       <div class="grid g-2" style="margin-top:18px">
         <div class="card"><div class="sec-t" style="margin-top:0">🏆 Лига недели · Аметист</div>
           <div class="league-row top3"><span class="rk">1</span><span class="ava" style="width:30px;height:30px;border-radius:9px;font-size:12px">К</span><span class="nm">Кирилл Д.</span><span class="xp">2100 XP</span></div>
-          <div class="league-row top3"><span class="rk">2</span><span class="ava" style="width:30px;height:30px;border-radius:9px;font-size:12px;background:linear-gradient(135deg,#12b277,#2f9bff)">С</span><span class="nm">София М.</span><span class="xp">1680 XP</span></div>
+          <div class="league-row top3"><span class="rk">2</span><span class="ava" style="width:30px;height:30px;border-radius:9px;font-size:12px;background:linear-gradient(135deg,#157f6e,#2f9bff)">С</span><span class="nm">София М.</span><span class="xp">1680 XP</span></div>
           <div class="league-row me"><span class="rk">3</span><span class="ava" style="width:30px;height:30px;border-radius:9px;font-size:12px">М</span><span class="nm">Мира С. — это ты!</span><span class="xp">1240 XP</span></div>
-          <div class="league-row"><span class="rk">4</span><span class="ava" style="width:30px;height:30px;border-radius:9px;font-size:12px;background:linear-gradient(135deg,#f2a33c,#ff6a52)">Т</span><span class="nm">Тимур А.</span><span class="xp">1130 XP</span></div>
-          <div class="league-row"><span class="rk">5</span><span class="ava" style="width:30px;height:30px;border-radius:9px;font-size:12px;background:linear-gradient(135deg,#7c5cff,#2f9bff)">Л</span><span class="nm">Лена П.</span><span class="xp">980 XP</span></div>
+          <div class="league-row"><span class="rk">4</span><span class="ava" style="width:30px;height:30px;border-radius:9px;font-size:12px;background:linear-gradient(135deg,#b98a2e,#b98a2e)">Т</span><span class="nm">Тимур А.</span><span class="xp">1130 XP</span></div>
+          <div class="league-row"><span class="rk">5</span><span class="ava" style="width:30px;height:30px;border-radius:9px;font-size:12px;background:linear-gradient(135deg,#1a8f7c,#2f9bff)">Л</span><span class="nm">Лена П.</span><span class="xp">980 XP</span></div>
           <p style="font-size:12.5px;color:var(--muted);margin-top:10px">Топ-3 переходят в лигу «Изумруд» в конце недели. Ещё 3 урока — и ты в тройке! 🚀</p>
         </div>
         <div class="card"><div class="sec-t" style="margin-top:0">🎖 Бейджи за навыки</div>
